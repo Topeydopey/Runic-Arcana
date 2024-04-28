@@ -107,10 +107,29 @@ namespace GestureRecognizer
 		{
 
 		}
+		// This variable will keep track of the time since the last stroke was drawn
+		private float timeSinceLastStroke = 0f;
 
+		// The delay after which the drawing should disappear
+		public float completionDelay = 2f;
+
+		// Whether the player is currently drawing
+		private bool isDrawing = false;
+
+		void Update()
+		{
+			// If the player isn't drawing, keep updating the time since the last stroke
+			if (!isDrawing)
+			{
+				timeSinceLastStroke += Time.deltaTime;
+			}
+		}
 		public void OnBeginDrag(PointerEventData eventData)
 		{
-
+			// The player has started drawing
+			isDrawing = true;
+			// Reset the time since the last stroke
+			timeSinceLastStroke = 0f;
 			if (data.lines.Count >= maxLines)
 			{
 				switch (removeStrategy)
@@ -144,9 +163,25 @@ namespace GestureRecognizer
 			}
 		}
 
+
 		public void OnEndDrag(PointerEventData eventData)
 		{
+			// The player has finished drawing
+			isDrawing = false;
 			StartCoroutine(OnEndDragCoroutine(eventData));
+			// Start the coroutine to clear the drawing after a delay
+			StartCoroutine(ClearDrawingAfterDelay());
+		}
+		private IEnumerator ClearDrawingAfterDelay()
+		{
+			// Wait for the delay
+			yield return new WaitForSeconds(completionDelay);
+
+			// Clear the drawing if enough time has passed since the last stroke
+			if (timeSinceLastStroke >= completionDelay)
+			{
+				ClearLines(); // Clears the current lines on the drawing UI
+			}
 		}
 
 		IEnumerator OnEndDragCoroutine(PointerEventData eventData)
