@@ -2,17 +2,21 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace GestureRecognizer {
-	
+namespace GestureRecognizer
+{
+
 	//[AddComponentMenu("UI/Extensions/Primitives/UILineRenderer")]
-	public class UILineRenderer : MaskableGraphic {
-		private enum SegmentType {
+	public class UILineRenderer : MaskableGraphic
+	{
+		private enum SegmentType
+		{
 			Start,
 			Middle,
 			End,
 		}
 
-		public enum JoinType {
+		public enum JoinType
+		{
 			Bevel,
 			Miter
 		}
@@ -51,8 +55,10 @@ namespace GestureRecognizer {
 		public bool LineCaps = false;
 		public JoinType LineJoins = JoinType.Bevel;
 
-		public override Texture mainTexture {
-			get {
+		public override Texture mainTexture
+		{
+			get
+			{
 				return m_Texture == null ? s_WhiteTexture : m_Texture;
 			}
 		}
@@ -60,11 +66,14 @@ namespace GestureRecognizer {
 		/// <summary>
 		/// Texture to be used.
 		/// </summary>
-		public Texture texture {
-			get {
+		public Texture texture
+		{
+			get
+			{
 				return m_Texture;
 			}
-			set {
+			set
+			{
 				if (m_Texture == value)
 					return;
 
@@ -77,11 +86,14 @@ namespace GestureRecognizer {
 		/// <summary>
 		/// UV rectangle used by the texture.
 		/// </summary>
-		public Rect uvRect {
-			get {
+		public Rect uvRect
+		{
+			get
+			{
 				return m_UVRect;
 			}
-			set {
+			set
+			{
 				if (m_UVRect == value)
 					return;
 				m_UVRect = value;
@@ -91,10 +103,12 @@ namespace GestureRecognizer {
 
 		public event System.Action OnPopulateCallback;
 
-		protected override void OnPopulateMesh(VertexHelper vh) {
+		protected override void OnPopulateMesh(VertexHelper vh)
+		{
 
-			if (OnPopulateCallback != null) {
-				OnPopulateCallback.Invoke ();
+			if (OnPopulateCallback != null)
+			{
+				OnPopulateCallback.Invoke();
 			}
 
 			if (Points == null)
@@ -106,12 +120,14 @@ namespace GestureRecognizer {
 			var offsetY = -rectTransform.pivot.y * rectTransform.rect.height;
 
 			// don't want to scale based on the size of the rect, so this is switchable now
-			if (!relativeSize) {
+			if (!relativeSize)
+			{
 				sizeX = 1;
 				sizeY = 1;
 			}
 
-			if (UseMargins) {
+			if (UseMargins)
+			{
 				sizeX -= Margin.x;
 				sizeY -= Margin.y;
 				offsetX += Margin.x / 2f;
@@ -122,45 +138,56 @@ namespace GestureRecognizer {
 
 			// Generate the quads that make up the wide line
 			var segments = new List<UIVertex[]>();
-			if (LineList) {
-				for (var i = 1; i < Points.Length; i += 2) {
+			if (LineList)
+			{
+				for (var i = 1; i < Points.Length; i += 2)
+				{
 					var start = Points[i - 1];
 					var end = Points[i];
 					start = new Vector2(start.x * sizeX + offsetX, start.y * sizeY + offsetY);
 					end = new Vector2(end.x * sizeX + offsetX, end.y * sizeY + offsetY);
 
-					if (LineCaps) {
+					if (LineCaps)
+					{
 						segments.Add(CreateLineCap(start, end, SegmentType.Start));
 					}
 
 					segments.Add(CreateLineSegment(start, end, SegmentType.Middle));
 
-					if (LineCaps) {
+					if (LineCaps)
+					{
 						segments.Add(CreateLineCap(start, end, SegmentType.End));
 					}
 				}
-			} else {
-				for (var i = 1; i < Points.Length; i++) {
+			}
+			else
+			{
+				for (var i = 1; i < Points.Length; i++)
+				{
 					var start = Points[i - 1];
 					var end = Points[i];
 					start = new Vector2(start.x * sizeX + offsetX, start.y * sizeY + offsetY);
 					end = new Vector2(end.x * sizeX + offsetX, end.y * sizeY + offsetY);
 
-					if (LineCaps && i == 1) {
+					if (LineCaps && i == 1)
+					{
 						segments.Add(CreateLineCap(start, end, SegmentType.Start));
 					}
 
 					segments.Add(CreateLineSegment(start, end, SegmentType.Middle));
 
-					if (LineCaps && i == Points.Length - 1) {
+					if (LineCaps && i == Points.Length - 1)
+					{
 						segments.Add(CreateLineCap(start, end, SegmentType.End));
 					}
 				}
 			}
 
 			// Add the line segments to the vertex helper, creating any joins as needed
-			for (var i = 0; i < segments.Count; i++) {
-				if (!LineList && i < segments.Count - 1) {
+			for (var i = 0; i < segments.Count; i++)
+			{
+				if (!LineList && i < segments.Count - 1)
+				{
 					var vec1 = segments[i][1].position - segments[i][2].position;
 					var vec2 = segments[i + 1][2].position - segments[i + 1][1].position;
 					var angle = Vector2.Angle(vec1, vec2) * Mathf.Deg2Rad;
@@ -174,24 +201,33 @@ namespace GestureRecognizer {
 					var miterPointB = segments[i][3].position + vec1.normalized * miterDistance * sign;
 
 					var joinType = LineJoins;
-					if (joinType == JoinType.Miter) {
+					if (joinType == JoinType.Miter)
+					{
 						// Make sure we can make a miter join without too many artifacts.
-						if (miterDistance < vec1.magnitude / 2 && miterDistance < vec2.magnitude / 2 && angle > MIN_MITER_JOIN) {
+						if (miterDistance < vec1.magnitude / 2 && miterDistance < vec2.magnitude / 2 && angle > MIN_MITER_JOIN)
+						{
 							segments[i][2].position = miterPointA;
 							segments[i][3].position = miterPointB;
 							segments[i + 1][0].position = miterPointB;
 							segments[i + 1][1].position = miterPointA;
-						} else {
+						}
+						else
+						{
 							joinType = JoinType.Bevel;
 						}
 					}
 
-					if (joinType == JoinType.Bevel) {
-						if (miterDistance < vec1.magnitude / 2 && miterDistance < vec2.magnitude / 2 && angle > MIN_BEVEL_NICE_JOIN) {
-							if (sign < 0) {
+					if (joinType == JoinType.Bevel)
+					{
+						if (miterDistance < vec1.magnitude / 2 && miterDistance < vec2.magnitude / 2 && angle > MIN_BEVEL_NICE_JOIN)
+						{
+							if (sign < 0)
+							{
 								segments[i][2].position = miterPointA;
 								segments[i + 1][1].position = miterPointA;
-							} else {
+							}
+							else
+							{
 								segments[i][3].position = miterPointB;
 								segments[i + 1][0].position = miterPointB;
 							}
@@ -205,11 +241,15 @@ namespace GestureRecognizer {
 			}
 		}
 
-		private UIVertex[] CreateLineCap(Vector2 start, Vector2 end, SegmentType type) {
-			if (type == SegmentType.Start) {
+		private UIVertex[] CreateLineCap(Vector2 start, Vector2 end, SegmentType type)
+		{
+			if (type == SegmentType.Start)
+			{
 				var capStart = start - ((end - start).normalized * LineThickness / 2);
 				return CreateLineSegment(capStart, start, SegmentType.Start);
-			} else if (type == SegmentType.End) {
+			}
+			else if (type == SegmentType.End)
+			{
 				var capEnd = end + ((end - start).normalized * LineThickness / 2);
 				return CreateLineSegment(end, capEnd, SegmentType.End);
 			}
@@ -218,7 +258,8 @@ namespace GestureRecognizer {
 			return null;
 		}
 
-		private UIVertex[] CreateLineSegment(Vector2 start, Vector2 end, SegmentType type) {
+		private UIVertex[] CreateLineSegment(Vector2 start, Vector2 end, SegmentType type)
+		{
 			List<UIVertex> points = new List<UIVertex>();
 
 			var uvs = middleUvs;
@@ -235,9 +276,11 @@ namespace GestureRecognizer {
 			return SetVbo(new[] { v1, v2, v3, v4 }, uvs);
 		}
 
-		protected UIVertex[] SetVbo(Vector2[] vertices, Vector2[] uvs) {
+		protected UIVertex[] SetVbo(Vector2[] vertices, Vector2[] uvs)
+		{
 			UIVertex[] vbo = new UIVertex[4];
-			for (int i = 0; i < vertices.Length; i++) {
+			for (int i = 0; i < vertices.Length; i++)
+			{
 				var vert = UIVertex.simpleVert;
 				vert.color = color;
 				vert.position = vertices[i];

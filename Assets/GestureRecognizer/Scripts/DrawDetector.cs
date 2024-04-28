@@ -164,10 +164,10 @@ namespace GestureRecognizer
 		}
 
 
+
 		public void OnEndDrag(PointerEventData eventData)
 		{
-			// The player has finished drawing
-			isDrawing = false;
+			isDrawing = false; // Player has stopped drawing
 			StartCoroutine(OnEndDragCoroutine(eventData));
 			// Start the coroutine to clear the drawing after a delay
 			StartCoroutine(ClearDrawingAfterDelay());
@@ -189,6 +189,9 @@ namespace GestureRecognizer
 
 			data.LastLine.points.Add(FixedPosition(eventData.position));
 			UpdateLines();
+
+			// Introduce a delay before recognition to prevent premature recognition
+			yield return new WaitForSeconds(2f);  // Delay for half a second, adjust as needed
 
 			for (int size = data.lines.Count; size >= 1 && size >= minLines; size--)
 			{
