@@ -97,6 +97,12 @@ namespace GestureRecognizer
 			//return normalized;
 		}
 
+		public void ResetDrawingState()
+		{
+			// Clear the lines from the drawing area
+			ClearLines();
+		}
+
 		public void ClearLines()
 		{
 			data.lines.Clear();
