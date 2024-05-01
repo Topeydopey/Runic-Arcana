@@ -12,7 +12,7 @@ public class SpellManager : MonoBehaviour
     {
         switch (spellId)
         {
-            case "horizontal":
+            case "kenaz":
                 CastFireball();
                 break;
                 // ... Add other cases for different spellIds if necessary.
