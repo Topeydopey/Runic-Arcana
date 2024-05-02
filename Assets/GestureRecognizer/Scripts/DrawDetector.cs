@@ -127,7 +127,7 @@ namespace GestureRecognizer
 			// If the player isn't drawing, keep updating the time since the last stroke
 			if (!isDrawing)
 			{
-				timeSinceLastStroke += Time.deltaTime;
+				timeSinceLastStroke += Time.unscaledDeltaTime;
 			}
 		}
 		public void OnBeginDrag(PointerEventData eventData)

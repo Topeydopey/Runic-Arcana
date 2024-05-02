@@ -15,7 +15,13 @@ public class SpellManager : MonoBehaviour
             case "kenaz":
                 CastFireball();
                 break;
-                // ... Add other cases for different spellIds if necessary.
+            // ... Add other cases for different spellIds if necessary.
+            case "Uruz":
+                TimeStop();
+                break;
+                // case "Thurisaz":
+                //     CastKnockback();
+                //     break;
         }
     }
 
@@ -34,4 +40,21 @@ public class SpellManager : MonoBehaviour
         // For testing purposes, we'll just print a message to the console.
         Debug.Log("Fireball spell cast!");
     }
+
+
+    private void TimeStop()
+    {
+        if (targetGameObject != null)
+        {
+            CustomEvent.Trigger(targetGameObject, "TimeStop");
+        }
+        else
+        {
+            Debug.LogError("Target GameObject is not set for Visual Scripting!");
+        }
+        Debug.Log("Timestop activated!");
+    }
+
+
+
 }

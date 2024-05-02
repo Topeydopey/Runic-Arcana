@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Runes
   - Fireball
+  - Enemy
   layers:
   - Default
   - TransparentFX
