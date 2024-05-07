@@ -127,7 +127,7 @@ namespace GestureRecognizer
 			// If the player isn't drawing, keep updating the time since the last stroke
 			if (!isDrawing)
 			{
-				timeSinceLastStroke += Time.deltaTime;
+				timeSinceLastStroke += Time.unscaledDeltaTime;
 			}
 		}
 		public void OnBeginDrag(PointerEventData eventData)
@@ -180,28 +180,38 @@ namespace GestureRecognizer
 		}
 		private IEnumerator ClearDrawingAfterDelay()
 		{
-			// Wait for the delay
-			yield return new WaitForSeconds(completionDelay);
+			float elapsed = 0f;
+			while (elapsed < completionDelay)
+			{
+				elapsed += Time.unscaledDeltaTime;
+				yield return null;
+			}
 
-			// Clear the drawing if enough time has passed since the last stroke
 			if (timeSinceLastStroke >= completionDelay)
 			{
-				ClearLines(); // Clears the current lines on the drawing UI
+				ClearLines();  // Clears the current lines on the drawing UI
 			}
 		}
 
 		IEnumerator OnEndDragCoroutine(PointerEventData eventData)
 		{
-
 			data.LastLine.points.Add(FixedPosition(eventData.position));
 			UpdateLines();
 
-			// Introduce a delay before recognition to prevent premature recognition
-			yield return new WaitForSeconds(2f);  // Delay for half a second, adjust as needed
+			// Introduce a delay before recognition to prevent premature recognition using unscaled time
+			float recognitionDelay = 1f;  // Delay before starting recognition
+			float elapsedTime = 0f;       // Timer to track the elapsed time using unscaled time
 
+			while (elapsedTime < recognitionDelay)
+			{
+				elapsedTime += Time.unscaledDeltaTime;
+				yield return null;
+			}
+
+			// Proceed with the recognition process after the delay
 			for (int size = data.lines.Count; size >= 1 && size >= minLines; size--)
 			{
-				//last [size] lines
+				// Extract the last 'size' number of lines for recognition
 				var sizedData = new GestureData()
 				{
 					lines = data.lines.GetRange(data.lines.Count - size, size)
@@ -209,6 +219,7 @@ namespace GestureRecognizer
 
 				var sizedNormalizedData = sizedData;
 
+				// Normalize data if required
 				if (fixedArea)
 				{
 					var rect = this.rectTransform.rect;
@@ -224,8 +235,7 @@ namespace GestureRecognizer
 
 				RecognitionResult result = null;
 
-				//run in another thread
-
+				// Run recognition in another thread to not block the main Unity thread
 				var thread = new System.Threading.Thread(() =>
 				{
 					result = recognizer.Recognize(sizedNormalizedData, normalizeScale: !fixedArea);
@@ -236,12 +246,12 @@ namespace GestureRecognizer
 					yield return null;
 				}
 
-				if (result.gesture != null && result.score.score >= scoreToAccept)
+				// Invoke recognition result event and handle spell casting if the gesture is recognized
+				if (result != null && result.gesture != null && result.score.score >= scoreToAccept)
 				{
 					OnRecognize.Invoke(result);
 
-
-					// New code: Invoke spell casting based on the recognized gesture
+					// Invoke spell casting based on the recognized gesture
 					var spellManager = FindObjectOfType<SpellManager>(); // Find the SpellManager in the scene
 					if (spellManager != null)
 					{
@@ -259,10 +269,6 @@ namespace GestureRecognizer
 					OnRecognize.Invoke(RecognitionResult.Empty);
 				}
 			}
-
-			yield return null;
 		}
-
 	}
-
 }

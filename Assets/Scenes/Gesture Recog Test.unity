@@ -11483,18 +11483,6 @@ MonoBehaviour:
   _data:
     _json: '{"declarations":{"Kind":"Object","collection":{"$content":[],"$version":"A"},"$version":"A"}}'
     _objectReferences: []
---- !u!114 &699571145071445526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3931448721125519273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &933208315672401623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11834,7 +11822,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1648198696388896043}
   - component: {fileID: 4811230210615919037}
-  - component: {fileID: 699571145071445526}
   m_Layer: 0
   m_Name: Cursor
   m_TagString: Untagged

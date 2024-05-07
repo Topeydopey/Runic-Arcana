@@ -1,41 +1,61 @@
 using GestureRecognizer;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject drawUI; // Reference to the drawing UI Canvas
-
+    public GameObject drawUI;
     public DrawDetector drawDetector;
+    public Volume slowMoVolume; // Ensure this is a URP Volume component
+
+    private bool isUIActive = false;
+    private ColorAdjustments colorAdjustments = null;
 
     void Start()
     {
-        drawDetector = drawUI.GetComponentInChildren<DrawDetector>();
+        // Try to fetch the Color Adjustments component from the volume
+        if (slowMoVolume.profile.TryGet(out colorAdjustments))
+        {
+            // Optionally, disable the effect initially
+            colorAdjustments.active = false;
+        }
     }
 
     void Update()
     {
-        // Check if the designated key is being held down
-        if (Input.GetKey(KeyCode.F)) // 'F' can be replaced with any key you want to use
+        if (Input.GetKey(KeyCode.F))
         {
-            OpenDrawUI(true);
+            if (!isUIActive)
+            {
+                ActivateSlowMo(true);
+            }
         }
         else
         {
-            OpenDrawUI(false);
-        }
-    }
-
-    // Method to open or close the drawing UI
-    public void OpenDrawUI(bool isOpen)
-    {
-        drawUI.SetActive(isOpen);
-        if (!isOpen)
-        {
-            // Reset the drawing lines when the UI is closed
-            if (drawDetector != null)
+            if (isUIActive)
             {
-                drawDetector.ResetDrawingState();
+                ActivateSlowMo(false);
             }
         }
     }
+
+    void ActivateSlowMo(bool activate)
+    {
+        Time.timeScale = activate ? 0.3f : 1.0f;
+        isUIActive = activate;
+        drawUI.SetActive(activate);
+        if (drawDetector != null && !activate)
+        {
+            drawDetector.ResetDrawingState();
+        }
+
+        // Adjust color adjustments when slow-mo is activated
+        if (colorAdjustments != null)
+        {
+            colorAdjustments.active = activate;
+            colorAdjustments.saturation.value = activate ? -50 : 0;  // Desaturate when slow-mo is active
+        }
+    }
 }
+
