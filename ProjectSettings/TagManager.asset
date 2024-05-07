@@ -6,15 +6,17 @@ TagManager:
   tags:
   - Runes
   - Fireball
+  - Enemy
+  - Pickup
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PostProcess
   - Water
   - UI
   - Player
-  - 
+  - Pickup
   - 
   - 
   - 
