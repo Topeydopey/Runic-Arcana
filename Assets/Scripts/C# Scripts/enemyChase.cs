@@ -1,13 +1,23 @@
 using System.Collections;
 using UnityEngine;
 
-public class enemyChase : MonoBehaviour
+public class EnemyChase : MonoBehaviour
 {
     public Transform player;
     public float speed = 5.0f;
     private Rigidbody2D rb;
-    private float knockbackEndTime = 0f;
-    public float knockbackRecoveryTime = 0.5f;  // Time in seconds the enemy is affected by knockback
+
+    // States
+    private enum State
+    {
+        Idle,
+        Chasing
+    }
+
+    private State currentState = State.Idle;
+
+    // Distance to start chasing
+    public float chaseThreshold = 10f;
 
     void Start()
     {
@@ -24,20 +34,45 @@ public class enemyChase : MonoBehaviour
                 player = playerGameObject.transform;
             }
         }
+
+        // State management
+        if (player != null)
+        {
+            float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+            if (distanceToPlayer < chaseThreshold)
+            {
+                currentState = State.Chasing;
+            }
+            else
+            {
+                currentState = State.Idle;
+            }
+        }
     }
 
     void FixedUpdate()
     {
-        if (player != null && Time.time >= knockbackEndTime)
+        switch (currentState)
         {
-            Vector2 direction = (player.position - transform.position).normalized;
-            rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
+            case State.Chasing:
+                ChasePlayer();
+                break;
+            case State.Idle:
+                Idle();
+                break;
         }
     }
 
-    public void ApplyKnockback(Vector2 force)
+    private void ChasePlayer()
     {
-        rb.AddForce(force, ForceMode2D.Impulse);
-        knockbackEndTime = Time.time + knockbackRecoveryTime;  // Set the time when the enemy can move again
+        Vector2 direction = (player.position - transform.position).normalized;
+        Vector2 targetPosition = Vector2.MoveTowards(rb.position, player.position, speed * Time.fixedDeltaTime);
+        rb.MovePosition(targetPosition);
+    }
+
+    private void Idle()
+    {
+        // Implement idle behavior (e.g., do nothing or patrol around)
+        // Currently does nothing
     }
 }
