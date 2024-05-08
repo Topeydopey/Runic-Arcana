@@ -4,7 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     public Transform holdPoint;  // The point where objects are held
     public float pickUpDistance = 2f;  // How far the player can pick up objects
-    private GameObject heldObject;
+    public GameObject heldObject;
     private Rigidbody2D heldObjectRb;  // To store the Rigidbody of the held object
 
     void Update()
@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
                 {
                     heldObject = hit.collider.gameObject;
                     heldObjectRb = heldObject.GetComponent<Rigidbody2D>(); // Get the Rigidbody2D component
-
                     if (heldObjectRb != null)
                     {
                         heldObjectRb.isKinematic = true; // Set the Rigidbody to Kinematic
