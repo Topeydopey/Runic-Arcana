@@ -5,7 +5,12 @@ public class EnemyChaseTeleport : MonoBehaviour
 {
     public Transform player;
     public float speed = 5.0f;
+    public float boostSpeed = 10.0f;  // Increased speed for the boost
+    public float boostDuration = 2.0f; // Duration of the boost in seconds
     private Rigidbody2D rb;
+    private float currentSpeed;
+    private float boostEndTime;
+    private Vector2 boostTargetPosition; // Target position to boost towards
 
     // Teleportation effects
     public GameObject teleportInEffectPrefab;  // Effect when the enemy appears
@@ -22,6 +27,7 @@ public class EnemyChaseTeleport : MonoBehaviour
         Idle,
         Chasing,
         Teleporting,
+        Boosting, // State during boosting
         Stopped // Added stopped state for when hit by fireball
     }
 
@@ -36,6 +42,7 @@ public class EnemyChaseTeleport : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        currentSpeed = speed;
     }
 
     void Update()
@@ -52,22 +59,36 @@ public class EnemyChaseTeleport : MonoBehaviour
         if (player != null && !isStopped)
         {
             float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-            Debug.Log("Distance to player: " + distanceToPlayer); // Log distance
+            Debug.Log("Distance to player: " + distanceToPlayer); // Log distance continuously
 
-            if (distanceToPlayer < chaseThreshold)
+            if (distanceToPlayer < chaseThreshold && currentState != State.Boosting)
             {
-                currentState = State.Chasing;
-                Debug.Log("Chasing Player"); // Log state change
+                if (currentState != State.Chasing)
+                {
+                    Debug.Log("Changing State to Chasing");
+                    currentState = State.Chasing;
+                }
             }
             else if (distanceToPlayer > teleportThreshold && Time.time > lastTeleportTime + teleportCooldown)
             {
-                currentState = State.Teleporting;
-                Debug.Log("Attempting to Teleport"); // Log state change
+                if (currentState != State.Teleporting)
+                {
+                    Debug.Log("Changing State to Teleporting");
+                    currentState = State.Teleporting;
+                }
             }
-            else
+            else if (currentState != State.Boosting && currentState != State.Idle)
             {
+                Debug.Log("Changing State to Idle");
                 currentState = State.Idle;
             }
+        }
+
+        if (Time.time > boostEndTime && currentState == State.Boosting)
+        {
+            Debug.Log("Boost has ended, changing State to Chasing");
+            currentSpeed = speed;  // Reset speed after boost duration
+            currentState = State.Chasing; // Continue chasing normally
         }
     }
 
@@ -76,7 +97,8 @@ public class EnemyChaseTeleport : MonoBehaviour
         switch (currentState)
         {
             case State.Chasing:
-                ChasePlayer();
+            case State.Boosting:
+                MoveTowardsTarget();
                 break;
             case State.Teleporting:
                 TeleportCloser();
@@ -87,13 +109,13 @@ public class EnemyChaseTeleport : MonoBehaviour
         }
     }
 
-    private void ChasePlayer()
+    private void MoveTowardsTarget()
     {
         if (!isStopped)
         {
-            Vector2 direction = (player.position - transform.position).normalized;
-            Vector2 targetPosition = Vector2.MoveTowards(rb.position, player.position, speed * Time.fixedDeltaTime);
-            rb.MovePosition(targetPosition);
+            Vector2 targetPosition = currentState == State.Boosting ? boostTargetPosition : (Vector2)player.position;
+            Vector2 newPosition = Vector2.MoveTowards(rb.position, targetPosition, currentSpeed * Time.fixedDeltaTime);
+            rb.MovePosition(newPosition);
         }
     }
 
@@ -108,11 +130,13 @@ public class EnemyChaseTeleport : MonoBehaviour
 
             rb.position = newPosition;
             lastTeleportTime = Time.time;
+            boostEndTime = Time.time + boostDuration;  // Set the end time for the boost
+            currentSpeed = boostSpeed;  // Set the speed to boost speed
+            boostTargetPosition = player.position;  // Set the target position for the boost
 
             Instantiate(teleportInEffectPrefab, newPosition, Quaternion.identity); // Effect when appearing
-
-            Debug.Log("Teleported to: " + newPosition); // Log new position
-            currentState = State.Chasing; // Immediately chase after teleporting
+            Debug.Log("Teleported to: " + newPosition + " | Boosting to target position."); // Log new position
+            currentState = State.Boosting; // Change state to Boosting
         }
     }
 
@@ -121,24 +145,25 @@ public class EnemyChaseTeleport : MonoBehaviour
         // Implement idle behavior (e.g., patrol around)
     }
 
-    // Method to be called by fireball collision
     public void ApplyStopEffect()
     {
         isStopped = true;
         currentState = State.Stopped;
+        Debug.Log("Enemy hit by fireball, stopped.");
         Invoke("ResumeMovement", stopDuration);
         Invoke("DestroyEnemy", stopDuration + 3.0f); // Destroy the enemy a bit after it resumes movement
     }
 
-    // Resume movement
     void ResumeMovement()
     {
         isStopped = false;
+        currentState = State.Idle;  // Ensure state is reset when movement resumes
+        Debug.Log("Resuming normal movement.");
     }
 
-    // Destroy the enemy game object
     void DestroyEnemy()
     {
+        Debug.Log("Destroying enemy.");
         Destroy(gameObject);
     }
 }
