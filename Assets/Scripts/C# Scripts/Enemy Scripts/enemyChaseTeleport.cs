@@ -127,7 +127,7 @@ public class EnemyChaseTeleport : MonoBehaviour
         isStopped = true;
         currentState = State.Stopped;
         Invoke("ResumeMovement", stopDuration);
-        Invoke("DestroyEnemy", stopDuration + 1.0f); // Destroy the enemy a bit after it resumes movement
+        Invoke("DestroyEnemy", stopDuration + 3.0f); // Destroy the enemy a bit after it resumes movement
     }
 
     // Resume movement
