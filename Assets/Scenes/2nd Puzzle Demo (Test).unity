@@ -717,7 +717,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data:
     _json: '{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"Kind":"Flow","collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":"Right
-      1","summary":null,"pan":{"x":-199.8654,"y":61.19888},"zoom":1.0,"elements":[{"coroutine":false,"defaultValues":{"target":null},"position":{"x":-566.0,"y":-98.0},"guid":"cc97a919-5728-4b95-98fb-fecf8cc4e63e","$version":"A","$type":"Unity.VisualScripting.OnTriggerEnter2D","$id":"10"},{"kind":"Scene","defaultValues":{"name":{"$content":"Right","$type":"System.String"}},"position":{"x":58.0,"y":-109.0},"guid":"8faf5241-9fc8-4cee-aa1b-bb7f13ad7a03","$version":"A","$type":"Unity.VisualScripting.SetVariable","$id":"12"},{"defaultValues":{},"position":{"x":-118.0,"y":-103.0},"guid":"4fbd2338-2a1f-42f6-b3d3-e208aeb62f1b","$version":"A","$type":"Unity.VisualScripting.If","$id":"14"},{"chainable":false,"parameterNames":["tag"],"member":{"name":"CompareTag","parameterTypes":["System.String"],"targetType":"UnityEngine.GameObject","targetTypeName":"UnityEngine.GameObject","$version":"A"},"defaultValues":{"target":null,"%tag":{"$content":"Player","$type":"System.String"}},"position":{"x":-324.0,"y":-101.0},"guid":"38cecbc5-13fb-48a4-9b16-ab0c52999909","$version":"A","$type":"Unity.VisualScripting.InvokeMember","$id":"16"},{"type":"System.Boolean","value":{"$content":true,"$type":"System.Boolean"},"defaultValues":{},"position":{"x":-72.0,"y":29.0},"guid":"e802b45f-3a00-4fe2-a631-76a00becfb96","$version":"A","$type":"Unity.VisualScripting.Literal","$id":"20"},{"kind":"Scene","defaultValues":{"name":{"$content":"Right","$type":"System.String"}},"position":{"x":18.0,"y":136.0},"guid":"134a02c9-4525-423e-92ac-934df2390446","$version":"A","$type":"Unity.VisualScripting.SetVariable","$id":"22"},{"defaultValues":{},"position":{"x":-158.0,"y":142.0},"guid":"98aed420-43e4-42d1-9a87-66aae26cbfbf","$version":"A","$type":"Unity.VisualScripting.If","$id":"24"},{"chainable":false,"parameterNames":["tag"],"member":{"name":"CompareTag","parameterTypes":["System.String"],"targetType":"UnityEngine.GameObject","targetTypeName":"UnityEngine.GameObject","$version":"A"},"defaultValues":{"target":null,"%tag":{"$content":"Player","$type":"System.String"}},"position":{"x":-364.0,"y":144.0},"guid":"47ca19d3-35c0-4b84-a74d-abf00919a5d2","$version":"A","$type":"Unity.VisualScripting.InvokeMember","$id":"26"},{"type":"System.Boolean","value":{"$content":false,"$type":"System.Boolean"},"defaultValues":{},"position":{"x":-112.0,"y":274.0},"guid":"758370ef-8aff-4a70-b1ef-3f9b5092bdfc","$version":"A","$type":"Unity.VisualScripting.Literal","$id":"30"},{"coroutine":false,"defaultValues":{"target":null},"position":{"x":-606.0,"y":147.0},"guid":"82d39705-f92b-49e6-b0d8-4b20a33a46f7","$version":"A","$type":"Unity.VisualScripting.OnTriggerExit2D","$id":"32"},{"sourceUnit":{"$ref":"10"},"sourceKey":"trigger","destinationUnit":{"$ref":"16"},"destinationKey":"enter","guid":"672ea030-507d-4535-a432-83ff28c6b42e","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"14"},"sourceKey":"ifTrue","destinationUnit":{"$ref":"12"},"destinationKey":"assign","guid":"1a5a0c64-11e4-48a1-a3a2-08938989e059","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"16"},"sourceKey":"exit","destinationUnit":{"$ref":"14"},"destinationKey":"enter","guid":"57eb3e63-2b0d-4968-a804-dca6f9e9a17e","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"24"},"sourceKey":"ifTrue","destinationUnit":{"$ref":"22"},"destinationKey":"assign","guid":"7c116a4c-1ab9-4806-9993-cf1b8556a1c8","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"26"},"sourceKey":"exit","destinationUnit":{"$ref":"24"},"destinationKey":"enter","guid":"2bcf9069-caf6-457c-b9f4-4fccd89c978f","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"32"},"sourceKey":"trigger","destinationUnit":{"$ref":"26"},"destinationKey":"enter","guid":"72cc4050-dbc4-4eab-b00d-2d746f521477","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"10"},"sourceKey":"collider","destinationUnit":{"$ref":"16"},"destinationKey":"target","guid":"d8cbaebb-a6de-4256-8eed-2a61a5c56b2b","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"20"},"sourceKey":"output","destinationUnit":{"$ref":"12"},"destinationKey":"input","guid":"579f6a3f-bc47-4a97-9a45-1aaf30e0f457","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"16"},"sourceKey":"result","destinationUnit":{"$ref":"14"},"destinationKey":"condition","guid":"d219e4c4-22e0-41dc-ad29-a01ff17e976d","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"30"},"sourceKey":"output","destinationUnit":{"$ref":"22"},"destinationKey":"input","guid":"2c745ebf-86c8-4737-9a4b-31887f81cc8e","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"26"},"sourceKey":"result","destinationUnit":{"$ref":"24"},"destinationKey":"condition","guid":"7fb9ef2b-552c-46e8-bf00-5642517fd91b","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"32"},"sourceKey":"collider","destinationUnit":{"$ref":"26"},"destinationKey":"target","guid":"b0314596-16ee-4d67-90b4-aaace0456a13","$type":"Unity.VisualScripting.ValueConnection"}],"$version":"A"}}}'
+      1","summary":null,"pan":{"x":-199.8654,"y":61.19888},"zoom":1.0,"elements":[{"coroutine":false,"defaultValues":{"target":null},"position":{"x":-566.0,"y":-98.0},"guid":"cc97a919-5728-4b95-98fb-fecf8cc4e63e","$version":"A","$type":"Unity.VisualScripting.OnTriggerEnter2D","$id":"10"},{"kind":"Scene","defaultValues":{"name":{"$content":"Right","$type":"System.String"}},"position":{"x":58.0,"y":-109.0},"guid":"8faf5241-9fc8-4cee-aa1b-bb7f13ad7a03","$version":"A","$type":"Unity.VisualScripting.SetVariable","$id":"12"},{"defaultValues":{},"position":{"x":-118.0,"y":-103.0},"guid":"4fbd2338-2a1f-42f6-b3d3-e208aeb62f1b","$version":"A","$type":"Unity.VisualScripting.If","$id":"14"},{"chainable":false,"parameterNames":["tag"],"member":{"name":"CompareTag","parameterTypes":["System.String"],"targetType":"UnityEngine.GameObject","targetTypeName":"UnityEngine.GameObject","$version":"A"},"defaultValues":{"target":null,"%tag":{"$content":"Player","$type":"System.String"}},"position":{"x":-324.0,"y":-101.0},"guid":"38cecbc5-13fb-48a4-9b16-ab0c52999909","$version":"A","$type":"Unity.VisualScripting.InvokeMember","$id":"16"},{"type":"System.Boolean","value":{"$content":true,"$type":"System.Boolean"},"defaultValues":{},"position":{"x":-72.0,"y":29.0},"guid":"e802b45f-3a00-4fe2-a631-76a00becfb96","$version":"A","$type":"Unity.VisualScripting.Literal","$id":"20"},{"kind":"Scene","defaultValues":{"name":{"$content":"Right","$type":"System.String"}},"position":{"x":18.0,"y":136.0},"guid":"134a02c9-4525-423e-92ac-934df2390446","$version":"A","$type":"Unity.VisualScripting.SetVariable","$id":"22"},{"defaultValues":{},"position":{"x":-158.0,"y":142.0},"guid":"98aed420-43e4-42d1-9a87-66aae26cbfbf","$version":"A","$type":"Unity.VisualScripting.If","$id":"24"},{"chainable":false,"parameterNames":["tag"],"member":{"name":"CompareTag","parameterTypes":["System.String"],"targetType":"UnityEngine.GameObject","targetTypeName":"UnityEngine.GameObject","$version":"A"},"defaultValues":{"target":null,"%tag":{"$content":"Player","$type":"System.String"}},"position":{"x":-364.0,"y":144.0},"guid":"47ca19d3-35c0-4b84-a74d-abf00919a5d2","$version":"A","$type":"Unity.VisualScripting.InvokeMember","$id":"26"},{"type":"System.Boolean","value":{"$content":false,"$type":"System.Boolean"},"defaultValues":{},"position":{"x":-112.0,"y":274.0},"guid":"758370ef-8aff-4a70-b1ef-3f9b5092bdfc","$version":"A","$type":"Unity.VisualScripting.Literal","$id":"30"},{"coroutine":false,"defaultValues":{"target":null},"position":{"x":-606.0,"y":147.0},"guid":"82d39705-f92b-49e6-b0d8-4b20a33a46f7","$version":"A","$type":"Unity.VisualScripting.OnTriggerExit2D","$id":"32"},{"sourceUnit":{"$ref":"26"},"sourceKey":"exit","destinationUnit":{"$ref":"24"},"destinationKey":"enter","guid":"2bcf9069-caf6-457c-b9f4-4fccd89c978f","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"32"},"sourceKey":"trigger","destinationUnit":{"$ref":"26"},"destinationKey":"enter","guid":"72cc4050-dbc4-4eab-b00d-2d746f521477","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"16"},"sourceKey":"exit","destinationUnit":{"$ref":"14"},"destinationKey":"enter","guid":"57eb3e63-2b0d-4968-a804-dca6f9e9a17e","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"24"},"sourceKey":"ifTrue","destinationUnit":{"$ref":"22"},"destinationKey":"assign","guid":"7c116a4c-1ab9-4806-9993-cf1b8556a1c8","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"10"},"sourceKey":"trigger","destinationUnit":{"$ref":"16"},"destinationKey":"enter","guid":"672ea030-507d-4535-a432-83ff28c6b42e","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"14"},"sourceKey":"ifTrue","destinationUnit":{"$ref":"12"},"destinationKey":"assign","guid":"1a5a0c64-11e4-48a1-a3a2-08938989e059","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"10"},"sourceKey":"collider","destinationUnit":{"$ref":"16"},"destinationKey":"target","guid":"d8cbaebb-a6de-4256-8eed-2a61a5c56b2b","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"20"},"sourceKey":"output","destinationUnit":{"$ref":"12"},"destinationKey":"input","guid":"579f6a3f-bc47-4a97-9a45-1aaf30e0f457","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"16"},"sourceKey":"result","destinationUnit":{"$ref":"14"},"destinationKey":"condition","guid":"d219e4c4-22e0-41dc-ad29-a01ff17e976d","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"30"},"sourceKey":"output","destinationUnit":{"$ref":"22"},"destinationKey":"input","guid":"2c745ebf-86c8-4737-9a4b-31887f81cc8e","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"26"},"sourceKey":"result","destinationUnit":{"$ref":"24"},"destinationKey":"condition","guid":"7fb9ef2b-552c-46e8-bf00-5642517fd91b","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"32"},"sourceKey":"collider","destinationUnit":{"$ref":"26"},"destinationKey":"target","guid":"b0314596-16ee-4d67-90b4-aaace0456a13","$type":"Unity.VisualScripting.ValueConnection"}],"$version":"A"}}}'
     _objectReferences: []
 --- !u!1 &53422957
 GameObject:
@@ -928,7 +928,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data:
-    _json: '{"declarations":{"Kind":"Scene","collection":{"$content":[{"name":"Wrong","value":{"$content":false,"$type":"System.Boolean"},"typeHandle":{"Identification":"System.Boolean,
+    _json: '{"declarations":{"Kind":"Scene","collection":{"$content":[{"name":"At
+      hint","value":{"$content":false,"$type":"System.Boolean"},"typeHandle":{"Identification":"System.Boolean,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"},{"name":"hasHint","value":{"$content":false,"$type":"System.Boolean"},"typeHandle":{"Identification":"System.Boolean,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"},{"name":"Wrong","value":{"$content":false,"$type":"System.Boolean"},"typeHandle":{"Identification":"System.Boolean,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"},{"name":"Right","value":{"$content":false,"$type":"System.Boolean"},"typeHandle":{"Identification":"System.Boolean,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"},{"name":"Right
       2","value":{"$content":false,"$type":"System.Boolean"},"typeHandle":{"Identification":"System.Boolean,
@@ -1222,6 +1225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 123987280}
   - component: {fileID: 123987281}
+  - component: {fileID: 123987282}
   m_Layer: 0
   m_Name: Dungeon Stuff_8
   m_TagString: Untagged
@@ -1296,6 +1300,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &123987282
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123987279}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.03905773, y: -0.037610307}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.57471275, y: 0.83219993}
+  m_EdgeRadius: 0
 --- !u!1 &141624567
 GameObject:
   m_ObjectHideFlags: 0
@@ -6983,6 +7032,7 @@ GameObject:
   m_Component:
   - component: {fileID: 298389572}
   - component: {fileID: 298389573}
+  - component: {fileID: 298389574}
   m_Layer: 0
   m_Name: Dungeon Stuff_10
   m_TagString: Untagged
@@ -7057,6 +7107,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &298389574
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298389571}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.030377388, y: -0.062201723}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.58628654, y: 0.63836193}
+  m_EdgeRadius: 0
 --- !u!1 &299384314
 GameObject:
   m_ObjectHideFlags: 0
@@ -7670,6 +7765,7 @@ GameObject:
   m_Component:
   - component: {fileID: 382984319}
   - component: {fileID: 382984320}
+  - component: {fileID: 382984321}
   m_Layer: 0
   m_Name: Table
   m_TagString: Untagged
@@ -7744,6 +7840,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &382984321
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382984318}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.059710145, y: 0.009186447}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 2}
+    newSize: {x: 1, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.65398765, y: 1.2773532}
+  m_EdgeRadius: 0
 --- !u!1 &388442385
 GameObject:
   m_ObjectHideFlags: 0
@@ -8549,6 +8690,91 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &520486433
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 520486435}
+  - component: {fileID: 520486434}
+  m_Layer: 0
+  m_Name: Hint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!212 &520486434
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520486433}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &520486435
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520486433}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.65999985, y: 2.21, z: 0}
+  m_LocalScale: {x: 12.424618, y: 13.781187, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 599569020}
+  m_Father: {fileID: 2083943860}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &538241166
 GameObject:
   m_ObjectHideFlags: 0
@@ -8643,6 +8869,7 @@ GameObject:
   m_Component:
   - component: {fileID: 572423190}
   - component: {fileID: 572423191}
+  - component: {fileID: 572423192}
   m_Layer: 0
   m_Name: Dungeon Stuff_10 (2)
   m_TagString: Untagged
@@ -8717,6 +8944,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &572423192
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572423189}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.029221535, y: -0.066236496}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5908909, y: 0.64154243}
+  m_EdgeRadius: 0
 --- !u!1 &581253689
 GameObject:
   m_ObjectHideFlags: 0
@@ -8954,7 +9226,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!224 &599569020
 RectTransform:
@@ -8963,17 +9235,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 599569017}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.06648365}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.16097075, y: 0.14512537, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1171101141}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 520486435}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 26.79, y: 0.54}
+  m_AnchoredPosition: {x: -0.29779816, y: 0.39835468}
   m_SizeDelta: {x: 2.1938, y: 1.2037}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &626923156
@@ -9649,6 +9921,258 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &695611249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 695611250}
+  - component: {fileID: 695611254}
+  - component: {fileID: 695611251}
+  - component: {fileID: 695611253}
+  - component: {fileID: 695611252}
+  - component: {fileID: 695611255}
+  m_Layer: 0
+  m_Name: Hint Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &695611250
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695611249}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1119795718}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -0.03}
+  m_SizeDelta: {x: 20, y: 5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &695611251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695611249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: '
+
+'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 2
+  m_fontSizeBase: 2
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 0
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 9.521498, y: 1.8411739, z: 9.506773, w: 2.7845554}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 695611252}
+  m_maskType: 0
+--- !u!23 &695611252
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695611249}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &695611253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695611249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2fe5546f775c47d2820aa5e8a715f53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
+    _objectReferences:
+    - {fileID: 11400000, guid: 3cb0a4c447581b8469b86b710127e002, type: 2}
+--- !u!114 &695611254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695611249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e741851cba3ad425c91ecf922cc6b379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"declarations":{"Kind":"Object","collection":{"$content":[],"$version":"A"},"$version":"A"}}'
+    _objectReferences: []
+--- !u!61 &695611255
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695611249}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0021762848, y: -0.01958406}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.82156754, y: 1.013056}
+  m_EdgeRadius: 0
 --- !u!1 &702721766
 GameObject:
   m_ObjectHideFlags: 0
@@ -9765,7 +10289,7 @@ MonoBehaviour:
     _json: '{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"Kind":"Flow","collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":"Right
       3","summary":null,"pan":{"x":-149.2005,"y":254.7374},"zoom":1.0,"elements":[{"coroutine":false,"defaultValues":{"target":null},"position":{"x":-471.0,"y":-33.0},"guid":"aade83fc-f351-45ce-b08d-8e8208667172","$version":"A","$type":"Unity.VisualScripting.OnTriggerEnter2D","$id":"10"},{"kind":"Scene","defaultValues":{"name":{"$content":"Right
       3","$type":"System.String"}},"position":{"x":153.0,"y":-44.0},"guid":"95c3deb0-5f00-4bb6-8b04-d797d92e66c3","$version":"A","$type":"Unity.VisualScripting.SetVariable","$id":"12"},{"defaultValues":{},"position":{"x":-23.0,"y":-38.0},"guid":"04aeab90-d162-4141-abfb-1528d2505425","$version":"A","$type":"Unity.VisualScripting.If","$id":"14"},{"chainable":false,"parameterNames":["tag"],"member":{"name":"CompareTag","parameterTypes":["System.String"],"targetType":"UnityEngine.GameObject","targetTypeName":"UnityEngine.GameObject","$version":"A"},"defaultValues":{"target":null,"%tag":{"$content":"Player","$type":"System.String"}},"position":{"x":-229.0,"y":-36.0},"guid":"ec099707-ba56-4027-9c2e-3630e04d8083","$version":"A","$type":"Unity.VisualScripting.InvokeMember","$id":"16"},{"type":"System.Boolean","value":{"$content":true,"$type":"System.Boolean"},"defaultValues":{},"position":{"x":23.0,"y":94.0},"guid":"cea41881-7ef6-41cb-894d-2dfc9db23b8f","$version":"A","$type":"Unity.VisualScripting.Literal","$id":"20"},{"kind":"Scene","defaultValues":{"name":{"$content":"Right
-      3","$type":"System.String"}},"position":{"x":184.0,"y":231.0},"guid":"f03bc6ac-e124-48d7-8d95-01017ccf0b10","$version":"A","$type":"Unity.VisualScripting.SetVariable","$id":"22"},{"defaultValues":{},"position":{"x":8.0,"y":237.0},"guid":"0d436de7-9c13-4e16-a7c7-697d44958fdc","$version":"A","$type":"Unity.VisualScripting.If","$id":"24"},{"chainable":false,"parameterNames":["tag"],"member":{"name":"CompareTag","parameterTypes":["System.String"],"targetType":"UnityEngine.GameObject","targetTypeName":"UnityEngine.GameObject","$version":"A"},"defaultValues":{"target":null,"%tag":{"$content":"Player","$type":"System.String"}},"position":{"x":-198.0,"y":239.0},"guid":"4acd3ea7-b5a2-49ad-a69b-ec5f14f6b8ea","$version":"A","$type":"Unity.VisualScripting.InvokeMember","$id":"26"},{"type":"System.Boolean","value":{"$content":false,"$type":"System.Boolean"},"defaultValues":{},"position":{"x":54.0,"y":369.0},"guid":"2e0f1e24-b1ec-4443-b83f-9dba1daa47b4","$version":"A","$type":"Unity.VisualScripting.Literal","$id":"30"},{"coroutine":false,"defaultValues":{"target":null},"position":{"x":-440.0,"y":242.0},"guid":"52ef8f7a-d134-4bdb-9aef-90d36bb62c38","$version":"A","$type":"Unity.VisualScripting.OnTriggerExit2D","$id":"32"},{"sourceUnit":{"$ref":"10"},"sourceKey":"trigger","destinationUnit":{"$ref":"16"},"destinationKey":"enter","guid":"1ef2a141-149b-4415-9d40-563210f8c74e","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"14"},"sourceKey":"ifTrue","destinationUnit":{"$ref":"12"},"destinationKey":"assign","guid":"711e84bb-c91e-40ab-9186-37e03bc247dc","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"16"},"sourceKey":"exit","destinationUnit":{"$ref":"14"},"destinationKey":"enter","guid":"de82f1b8-bee7-425f-b966-0f067b32cdd3","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"24"},"sourceKey":"ifTrue","destinationUnit":{"$ref":"22"},"destinationKey":"assign","guid":"1fd36a60-4570-4571-ab64-c2bba3966fbe","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"26"},"sourceKey":"exit","destinationUnit":{"$ref":"24"},"destinationKey":"enter","guid":"d7c883fd-d034-4e37-9779-7ca1152bcf00","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"32"},"sourceKey":"trigger","destinationUnit":{"$ref":"26"},"destinationKey":"enter","guid":"a153b913-c332-40d1-9e09-bda012827e97","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"10"},"sourceKey":"collider","destinationUnit":{"$ref":"16"},"destinationKey":"target","guid":"ee9b20a4-e3d4-498c-8d7c-6ee6537a0ba6","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"20"},"sourceKey":"output","destinationUnit":{"$ref":"12"},"destinationKey":"input","guid":"555770e8-3585-4166-b288-90c4e79df656","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"16"},"sourceKey":"result","destinationUnit":{"$ref":"14"},"destinationKey":"condition","guid":"ca9285b5-57e9-485c-b808-7ed1ea2735fc","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"30"},"sourceKey":"output","destinationUnit":{"$ref":"22"},"destinationKey":"input","guid":"1c7dfe75-0a03-42c4-a645-85ddf3a5bfea","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"26"},"sourceKey":"result","destinationUnit":{"$ref":"24"},"destinationKey":"condition","guid":"b665489a-8eb5-4292-a385-b5051aa70027","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"32"},"sourceKey":"collider","destinationUnit":{"$ref":"26"},"destinationKey":"target","guid":"baaf968d-b6e4-4c92-b38d-5e402b162f4f","$type":"Unity.VisualScripting.ValueConnection"}],"$version":"A"}}}'
+      3","$type":"System.String"}},"position":{"x":184.0,"y":231.0},"guid":"f03bc6ac-e124-48d7-8d95-01017ccf0b10","$version":"A","$type":"Unity.VisualScripting.SetVariable","$id":"22"},{"defaultValues":{},"position":{"x":8.0,"y":237.0},"guid":"0d436de7-9c13-4e16-a7c7-697d44958fdc","$version":"A","$type":"Unity.VisualScripting.If","$id":"24"},{"chainable":false,"parameterNames":["tag"],"member":{"name":"CompareTag","parameterTypes":["System.String"],"targetType":"UnityEngine.GameObject","targetTypeName":"UnityEngine.GameObject","$version":"A"},"defaultValues":{"target":null,"%tag":{"$content":"Player","$type":"System.String"}},"position":{"x":-198.0,"y":239.0},"guid":"4acd3ea7-b5a2-49ad-a69b-ec5f14f6b8ea","$version":"A","$type":"Unity.VisualScripting.InvokeMember","$id":"26"},{"type":"System.Boolean","value":{"$content":false,"$type":"System.Boolean"},"defaultValues":{},"position":{"x":54.0,"y":369.0},"guid":"2e0f1e24-b1ec-4443-b83f-9dba1daa47b4","$version":"A","$type":"Unity.VisualScripting.Literal","$id":"30"},{"coroutine":false,"defaultValues":{"target":null},"position":{"x":-440.0,"y":242.0},"guid":"52ef8f7a-d134-4bdb-9aef-90d36bb62c38","$version":"A","$type":"Unity.VisualScripting.OnTriggerExit2D","$id":"32"},{"sourceUnit":{"$ref":"26"},"sourceKey":"exit","destinationUnit":{"$ref":"24"},"destinationKey":"enter","guid":"d7c883fd-d034-4e37-9779-7ca1152bcf00","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"32"},"sourceKey":"trigger","destinationUnit":{"$ref":"26"},"destinationKey":"enter","guid":"a153b913-c332-40d1-9e09-bda012827e97","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"16"},"sourceKey":"exit","destinationUnit":{"$ref":"14"},"destinationKey":"enter","guid":"de82f1b8-bee7-425f-b966-0f067b32cdd3","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"24"},"sourceKey":"ifTrue","destinationUnit":{"$ref":"22"},"destinationKey":"assign","guid":"1fd36a60-4570-4571-ab64-c2bba3966fbe","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"10"},"sourceKey":"trigger","destinationUnit":{"$ref":"16"},"destinationKey":"enter","guid":"1ef2a141-149b-4415-9d40-563210f8c74e","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"14"},"sourceKey":"ifTrue","destinationUnit":{"$ref":"12"},"destinationKey":"assign","guid":"711e84bb-c91e-40ab-9186-37e03bc247dc","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"10"},"sourceKey":"collider","destinationUnit":{"$ref":"16"},"destinationKey":"target","guid":"ee9b20a4-e3d4-498c-8d7c-6ee6537a0ba6","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"20"},"sourceKey":"output","destinationUnit":{"$ref":"12"},"destinationKey":"input","guid":"555770e8-3585-4166-b288-90c4e79df656","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"16"},"sourceKey":"result","destinationUnit":{"$ref":"14"},"destinationKey":"condition","guid":"ca9285b5-57e9-485c-b808-7ed1ea2735fc","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"30"},"sourceKey":"output","destinationUnit":{"$ref":"22"},"destinationKey":"input","guid":"1c7dfe75-0a03-42c4-a645-85ddf3a5bfea","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"26"},"sourceKey":"result","destinationUnit":{"$ref":"24"},"destinationKey":"condition","guid":"b665489a-8eb5-4292-a385-b5051aa70027","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"32"},"sourceKey":"collider","destinationUnit":{"$ref":"26"},"destinationKey":"target","guid":"baaf968d-b6e4-4c92-b38d-5e402b162f4f","$type":"Unity.VisualScripting.ValueConnection"}],"$version":"A"}}}'
     _objectReferences: []
 --- !u!114 &724638185
 MonoBehaviour:
@@ -10010,6 +10534,7 @@ GameObject:
   m_Component:
   - component: {fileID: 740755294}
   - component: {fileID: 740755295}
+  - component: {fileID: 740755296}
   m_Layer: 0
   m_Name: Dungeon Stuff_9
   m_TagString: Untagged
@@ -10084,6 +10609,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &740755296
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740755293}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0058431625, y: -0.021429777}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.7623272, y: 0.69998693}
+  m_EdgeRadius: 0
 --- !u!1 &742431256
 GameObject:
   m_ObjectHideFlags: 0
@@ -10292,6 +10862,7 @@ GameObject:
   m_Component:
   - component: {fileID: 779451279}
   - component: {fileID: 779451280}
+  - component: {fileID: 779451281}
   m_Layer: 0
   m_Name: Dungeon Stuff_13 (1)
   m_TagString: Untagged
@@ -10366,6 +10937,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &779451281
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779451278}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.013433456, y: -0.112675786}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.77355576, y: 0.6902113}
+  m_EdgeRadius: 0
 --- !u!1 &784377332
 GameObject:
   m_ObjectHideFlags: 0
@@ -11482,6 +12098,7 @@ GameObject:
   m_Component:
   - component: {fileID: 989633779}
   - component: {fileID: 989633780}
+  - component: {fileID: 989633781}
   m_Layer: 0
   m_Name: Dungeon Stuff_13
   m_TagString: Untagged
@@ -11556,6 +12173,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &989633781
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989633778}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0076551437, y: 0.022965431}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.7703457, y: 0.95406914}
+  m_EdgeRadius: 0
 --- !u!1 &994898488
 GameObject:
   m_ObjectHideFlags: 0
@@ -12770,6 +13432,7 @@ GameObject:
   - component: {fileID: 1119795718}
   - component: {fileID: 1119795719}
   - component: {fileID: 1119795720}
+  - component: {fileID: 1119795721}
   m_Layer: 0
   m_Name: Hint
   m_TagString: Hint
@@ -12789,7 +13452,8 @@ Transform:
   m_LocalPosition: {x: 21.212, y: 1.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 695611250}
   m_Father: {fileID: 152622761}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1119795719
@@ -12844,7 +13508,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1119795720
+--- !u!114 &1119795720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119795717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e741851cba3ad425c91ecf922cc6b379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"declarations":{"Kind":"Object","collection":{"$content":[{"name":"Hint
+      Text","value":{"$content":0,"$type":"UnityEngine.Object"},"typeHandle":{"Identification":"UnityEngine.GameObject,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
+    _objectReferences:
+    - {fileID: 695611249}
+--- !u!61 &1119795721
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12873,10 +13555,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0133190155, y: -0.09855127}
+  m_Offset: {x: -0.0137043, y: 0.0011421442}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -12887,7 +13569,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.77093506, y: 1.1225235}
+  m_Size: {x: 0.78985214, y: 0.8789365}
   m_EdgeRadius: 0
 --- !u!1 &1163861482
 GameObject:
@@ -13219,7 +13901,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 6
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!224 &1171101141
 RectTransform:
@@ -13238,7 +13920,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.3335, y: -3.0482004}
+  m_AnchoredPosition: {x: 3.85, y: -3.19}
   m_SizeDelta: {x: 9.0758, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1174524796
@@ -13414,6 +14096,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1187882682}
   - component: {fileID: 1187882683}
+  - component: {fileID: 1187882684}
   m_Layer: 0
   m_Name: Table (1)
   m_TagString: Untagged
@@ -13488,6 +14171,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1187882684
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187882681}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.060808912, y: 0.005530596}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 2}
+    newSize: {x: 1, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.66831446, y: 1.2592351}
+  m_EdgeRadius: 0
 --- !u!1 &1191043645
 GameObject:
   m_ObjectHideFlags: 0
@@ -13498,6 +14226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1191043646}
   - component: {fileID: 1191043647}
+  - component: {fileID: 1191043648}
   m_Layer: 0
   m_Name: Dungeon Stuff_11
   m_TagString: Untagged
@@ -13572,6 +14301,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1191043648
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191043645}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.05977726, y: -0.07382727}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6781254, y: 0.5948458}
+  m_EdgeRadius: 0
 --- !u!1 &1201744341
 GameObject:
   m_ObjectHideFlags: 0
@@ -14408,7 +15182,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 6.4902267, y: 0, z: 8.559181, w: 0.7985785}
+  m_margin: {x: 6.4902267, y: 0, z: 8.559181, w: 2.988352}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -14475,7 +15249,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.99, y: -13.44}
+  m_AnchoredPosition: {x: 3.99, y: -14.36}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1337231603
@@ -14937,7 +15711,7 @@ MonoBehaviour:
     _json: '{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"Kind":"Flow","collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":"Right
       2","summary":null,"pan":{"x":-52.66666,"y":306.5627},"zoom":1.0,"elements":[{"coroutine":false,"defaultValues":{"target":null},"position":{"x":-471.0,"y":-3.0},"guid":"facccd47-7eb4-4056-b631-3aead4808212","$version":"A","$type":"Unity.VisualScripting.OnTriggerEnter2D","$id":"10"},{"kind":"Scene","defaultValues":{"name":{"$content":"Right
       2","$type":"System.String"}},"position":{"x":153.0,"y":-14.0},"guid":"0fa1d42e-654b-4c5c-8876-e3191f36e5d1","$version":"A","$type":"Unity.VisualScripting.SetVariable","$id":"12"},{"defaultValues":{},"position":{"x":-23.0,"y":-8.0},"guid":"925fe11d-ca6b-4e4d-a0e2-e4cc9e774f08","$version":"A","$type":"Unity.VisualScripting.If","$id":"14"},{"chainable":false,"parameterNames":["tag"],"member":{"name":"CompareTag","parameterTypes":["System.String"],"targetType":"UnityEngine.GameObject","targetTypeName":"UnityEngine.GameObject","$version":"A"},"defaultValues":{"target":null,"%tag":{"$content":"Player","$type":"System.String"}},"position":{"x":-229.0,"y":-6.0},"guid":"366307aa-1dc7-403f-9431-df6eaa76cbdd","$version":"A","$type":"Unity.VisualScripting.InvokeMember","$id":"16"},{"type":"System.Boolean","value":{"$content":true,"$type":"System.Boolean"},"defaultValues":{},"position":{"x":23.0,"y":124.0},"guid":"8c1d9baf-9af7-4851-af3e-72858da623d3","$version":"A","$type":"Unity.VisualScripting.Literal","$id":"20"},{"kind":"Scene","defaultValues":{"name":{"$content":"Right
-      2","$type":"System.String"}},"position":{"x":158.0,"y":250.0},"guid":"cc4873f1-198b-4b31-9dc6-5b34e35b89ff","$version":"A","$type":"Unity.VisualScripting.SetVariable","$id":"22"},{"defaultValues":{},"position":{"x":-18.0,"y":256.0},"guid":"d475315e-0ccc-4111-bd31-1a349f81fa62","$version":"A","$type":"Unity.VisualScripting.If","$id":"24"},{"chainable":false,"parameterNames":["tag"],"member":{"name":"CompareTag","parameterTypes":["System.String"],"targetType":"UnityEngine.GameObject","targetTypeName":"UnityEngine.GameObject","$version":"A"},"defaultValues":{"target":null,"%tag":{"$content":"Player","$type":"System.String"}},"position":{"x":-224.0,"y":258.0},"guid":"9a3ee420-0d6d-4a93-af49-eb8017ece864","$version":"A","$type":"Unity.VisualScripting.InvokeMember","$id":"26"},{"type":"System.Boolean","value":{"$content":false,"$type":"System.Boolean"},"defaultValues":{},"position":{"x":28.0,"y":388.0},"guid":"ae1b028d-9663-47ab-9323-540acf52d2ba","$version":"A","$type":"Unity.VisualScripting.Literal","$id":"30"},{"coroutine":false,"defaultValues":{"target":null},"position":{"x":-466.0,"y":261.0},"guid":"59d3093c-b8e2-4be6-817a-1874593a98d1","$version":"A","$type":"Unity.VisualScripting.OnTriggerExit2D","$id":"32"},{"sourceUnit":{"$ref":"10"},"sourceKey":"trigger","destinationUnit":{"$ref":"16"},"destinationKey":"enter","guid":"22ab2c50-8058-4ff3-a311-006d4167831f","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"14"},"sourceKey":"ifTrue","destinationUnit":{"$ref":"12"},"destinationKey":"assign","guid":"33440bac-a21c-4913-b639-6ad04f853a17","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"16"},"sourceKey":"exit","destinationUnit":{"$ref":"14"},"destinationKey":"enter","guid":"a507e541-0493-4281-8766-c4f521bd0f44","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"24"},"sourceKey":"ifTrue","destinationUnit":{"$ref":"22"},"destinationKey":"assign","guid":"1d8d6d6e-e6ef-4e25-bb52-853ee16f4dad","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"26"},"sourceKey":"exit","destinationUnit":{"$ref":"24"},"destinationKey":"enter","guid":"580393c6-224b-4974-ae5a-52c03be7213b","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"32"},"sourceKey":"trigger","destinationUnit":{"$ref":"26"},"destinationKey":"enter","guid":"b0c19afa-e4b2-4ffc-b130-d884b9bdfe4f","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"10"},"sourceKey":"collider","destinationUnit":{"$ref":"16"},"destinationKey":"target","guid":"806f782f-0d8c-4be7-85cd-57cc3a3b452f","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"20"},"sourceKey":"output","destinationUnit":{"$ref":"12"},"destinationKey":"input","guid":"0c11d24a-3402-4f4b-9fed-d25aee01fe77","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"16"},"sourceKey":"result","destinationUnit":{"$ref":"14"},"destinationKey":"condition","guid":"d0655637-6381-4b5c-ab4b-0dcdb5811efa","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"30"},"sourceKey":"output","destinationUnit":{"$ref":"22"},"destinationKey":"input","guid":"2d97039e-983d-47f8-963b-95a4a551d575","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"26"},"sourceKey":"result","destinationUnit":{"$ref":"24"},"destinationKey":"condition","guid":"e9e94edf-c068-4f7c-a470-19d4c7633bd4","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"32"},"sourceKey":"collider","destinationUnit":{"$ref":"26"},"destinationKey":"target","guid":"018ed519-fe6c-44e9-b044-2d2bdbb553c6","$type":"Unity.VisualScripting.ValueConnection"}],"$version":"A"}}}'
+      2","$type":"System.String"}},"position":{"x":158.0,"y":250.0},"guid":"cc4873f1-198b-4b31-9dc6-5b34e35b89ff","$version":"A","$type":"Unity.VisualScripting.SetVariable","$id":"22"},{"defaultValues":{},"position":{"x":-18.0,"y":256.0},"guid":"d475315e-0ccc-4111-bd31-1a349f81fa62","$version":"A","$type":"Unity.VisualScripting.If","$id":"24"},{"chainable":false,"parameterNames":["tag"],"member":{"name":"CompareTag","parameterTypes":["System.String"],"targetType":"UnityEngine.GameObject","targetTypeName":"UnityEngine.GameObject","$version":"A"},"defaultValues":{"target":null,"%tag":{"$content":"Player","$type":"System.String"}},"position":{"x":-224.0,"y":258.0},"guid":"9a3ee420-0d6d-4a93-af49-eb8017ece864","$version":"A","$type":"Unity.VisualScripting.InvokeMember","$id":"26"},{"type":"System.Boolean","value":{"$content":false,"$type":"System.Boolean"},"defaultValues":{},"position":{"x":28.0,"y":388.0},"guid":"ae1b028d-9663-47ab-9323-540acf52d2ba","$version":"A","$type":"Unity.VisualScripting.Literal","$id":"30"},{"coroutine":false,"defaultValues":{"target":null},"position":{"x":-466.0,"y":261.0},"guid":"59d3093c-b8e2-4be6-817a-1874593a98d1","$version":"A","$type":"Unity.VisualScripting.OnTriggerExit2D","$id":"32"},{"sourceUnit":{"$ref":"26"},"sourceKey":"exit","destinationUnit":{"$ref":"24"},"destinationKey":"enter","guid":"580393c6-224b-4974-ae5a-52c03be7213b","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"32"},"sourceKey":"trigger","destinationUnit":{"$ref":"26"},"destinationKey":"enter","guid":"b0c19afa-e4b2-4ffc-b130-d884b9bdfe4f","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"16"},"sourceKey":"exit","destinationUnit":{"$ref":"14"},"destinationKey":"enter","guid":"a507e541-0493-4281-8766-c4f521bd0f44","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"24"},"sourceKey":"ifTrue","destinationUnit":{"$ref":"22"},"destinationKey":"assign","guid":"1d8d6d6e-e6ef-4e25-bb52-853ee16f4dad","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"10"},"sourceKey":"trigger","destinationUnit":{"$ref":"16"},"destinationKey":"enter","guid":"22ab2c50-8058-4ff3-a311-006d4167831f","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"14"},"sourceKey":"ifTrue","destinationUnit":{"$ref":"12"},"destinationKey":"assign","guid":"33440bac-a21c-4913-b639-6ad04f853a17","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"10"},"sourceKey":"collider","destinationUnit":{"$ref":"16"},"destinationKey":"target","guid":"806f782f-0d8c-4be7-85cd-57cc3a3b452f","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"20"},"sourceKey":"output","destinationUnit":{"$ref":"12"},"destinationKey":"input","guid":"0c11d24a-3402-4f4b-9fed-d25aee01fe77","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"16"},"sourceKey":"result","destinationUnit":{"$ref":"14"},"destinationKey":"condition","guid":"d0655637-6381-4b5c-ab4b-0dcdb5811efa","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"30"},"sourceKey":"output","destinationUnit":{"$ref":"22"},"destinationKey":"input","guid":"2d97039e-983d-47f8-963b-95a4a551d575","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"26"},"sourceKey":"result","destinationUnit":{"$ref":"24"},"destinationKey":"condition","guid":"e9e94edf-c068-4f7c-a470-19d4c7633bd4","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"32"},"sourceKey":"collider","destinationUnit":{"$ref":"26"},"destinationKey":"target","guid":"018ed519-fe6c-44e9-b044-2d2bdbb553c6","$type":"Unity.VisualScripting.ValueConnection"}],"$version":"A"}}}'
     _objectReferences: []
 --- !u!114 &1356688664
 MonoBehaviour:
@@ -18364,6 +19138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1504115078}
   - component: {fileID: 1504115079}
+  - component: {fileID: 1504115080}
   m_Layer: 0
   m_Name: Dungeon Stuff_10 (3)
   m_TagString: Untagged
@@ -18438,6 +19213,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1504115080
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504115077}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.02768135, y: -0.07197261}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.59030914, y: 0.64936304}
+  m_EdgeRadius: 0
 --- !u!1 &1506105573
 GameObject:
   m_ObjectHideFlags: 0
@@ -18742,6 +19562,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1544179842}
   - component: {fileID: 1544179843}
+  - component: {fileID: 1544179844}
   m_Layer: 0
   m_Name: Dungeon Stuff_10 (4)
   m_TagString: Untagged
@@ -18816,6 +19637,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1544179844
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544179841}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.03321743, y: -0.057209015}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5866184, y: 0.65674496}
+  m_EdgeRadius: 0
 --- !u!1 &1553737886
 GameObject:
   m_ObjectHideFlags: 0
@@ -19266,8 +20132,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 6
-  m_fontSizeBase: 6
+  m_fontSize: 5
+  m_fontSizeBase: 5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -19351,7 +20217,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!224 &1605492729
 RectTransform:
@@ -19369,7 +20235,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.1657, y: 0}
+  m_AnchoredPosition: {x: -4.174, y: 0.001}
   m_SizeDelta: {x: 0.7759, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1607892530
@@ -19382,6 +20248,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1607892531}
   - component: {fileID: 1607892532}
+  - component: {fileID: 1607892533}
   m_Layer: 0
   m_Name: Dungeon Stuff_9 (1)
   m_TagString: Untagged
@@ -19456,6 +20323,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1607892533
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607892530}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.010883331, y: -0.0326488}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.77301407, y: 0.7108245}
+  m_EdgeRadius: 0
 --- !u!1 &1626313502
 GameObject:
   m_ObjectHideFlags: 0
@@ -20121,6 +21033,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1809035629}
   - component: {fileID: 1809035630}
+  - component: {fileID: 1809035631}
   m_Layer: 0
   m_Name: Dungeon Stuff_8 (1)
   m_TagString: Untagged
@@ -20195,6 +21108,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1809035631
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809035628}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.042321205, y: -0.023458958}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.56066704, y: 0.8402262}
+  m_EdgeRadius: 0
 --- !u!1 &1840150610
 GameObject:
   m_ObjectHideFlags: 0
@@ -20381,6 +21339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1900903455}
   - component: {fileID: 1900903456}
+  - component: {fileID: 1900903457}
   m_Layer: 0
   m_Name: Dungeon Stuff_10 (1)
   m_TagString: Untagged
@@ -20455,6 +21414,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1900903457
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900903454}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.04195118, y: -0.06364828}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.58628654, y: 0.64125514}
+  m_EdgeRadius: 0
 --- !u!1 &1928700598
 GameObject:
   m_ObjectHideFlags: 0
@@ -21157,6 +22161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1955760722}
   - component: {fileID: 1955760723}
+  - component: {fileID: 1955760724}
   m_Layer: 0
   m_Name: Dungeon Stuff_9 (2)
   m_TagString: Untagged
@@ -21231,6 +22236,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1955760724
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955760721}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0077724457, y: -0.02643013}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.76057816, y: 0.6859493}
+  m_EdgeRadius: 0
 --- !u!1 &1959358661
 GameObject:
   m_ObjectHideFlags: 0
@@ -21557,6 +22607,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2002780757}
   - component: {fileID: 2002780756}
+  - component: {fileID: 2002780758}
   m_Layer: 0
   m_Name: Dungeon Stuff_12
   m_TagString: Untagged
@@ -21631,6 +22682,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 152622761}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &2002780758
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002780755}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.001832962, y: 0.04215139}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.7470932, y: 0.9156972}
+  m_EdgeRadius: 0
 --- !u!1 &2055042883
 GameObject:
   m_ObjectHideFlags: 0
@@ -22067,9 +23163,15 @@ MonoBehaviour:
   _data:
     _json: '{"declarations":{"Kind":"Object","collection":{"$content":[{"name":"moveSpeed","value":{"$content":6.0,"$type":"System.Single"},"typeHandle":{"Identification":"System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"},{"name":"codex","value":{"$content":0,"$type":"UnityEngine.Object"},"typeHandle":{"Identification":"UnityEngine.GameObject,
-      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"codex
+      is opening","value":{"$content":false,"$type":"System.Boolean"},"typeHandle":{"Identification":"System.Boolean,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"},{"name":"Hint","value":{"$content":1,"$type":"UnityEngine.Object"},"typeHandle":{"Identification":"UnityEngine.GameObject,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"hint
+      is opening","value":{"$content":false,"$type":"System.Boolean"},"typeHandle":{"Identification":"System.Boolean,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
     _objectReferences:
     - {fileID: 163114573}
+    - {fileID: 520486433}
 --- !u!58 &2083943857
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -22172,7 +23274,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 1, g: 0.9549162, b: 0.047169685, a: 1}
   m_FlipX: 0
@@ -22193,7 +23295,7 @@ Transform:
   m_GameObject: {fileID: 2083943853}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3, y: -13.5, z: 0}
+  m_LocalPosition: {x: -1.56, y: -14.63, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22202,6 +23304,7 @@ Transform:
   - {fileID: 329615451}
   - {fileID: 2122419953}
   - {fileID: 473349910}
+  - {fileID: 520486435}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2090972947
@@ -22717,6 +23820,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2144187631}
   - component: {fileID: 2144187632}
+  - component: {fileID: 2144187633}
   m_Layer: 0
   m_Name: Dungeon Stuff_11
   m_TagString: Untagged
@@ -22791,6 +23895,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &2144187633
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144187630}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0643034, y: -0.082675606}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6570492, y: 0.57131207}
+  m_EdgeRadius: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -22800,7 +23949,6 @@ SceneRoots:
   - {fileID: 83305340}
   - {fileID: 1337231607}
   - {fileID: 1323079924}
-  - {fileID: 599569020}
   - {fileID: 2056213331}
   - {fileID: 688000784}
   - {fileID: 1043865372}
