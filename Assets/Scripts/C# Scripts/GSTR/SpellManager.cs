@@ -16,7 +16,7 @@ public class SpellManager : MonoBehaviour
             return;
         }
 
-        // Instantiate the barrier at the player's current position and keep it deactivated
+        // Instantiate the barrier at the start but keep it deactivated
         if (barrierPrefab != null)
         {
             barrierInstance = Instantiate(barrierPrefab, playerTransform.position, Quaternion.identity);
@@ -48,6 +48,7 @@ public class SpellManager : MonoBehaviour
             Vector2 direction = cursorRotationAim.GetCurrentAimDirection();
             float angle = cursorRotationAim.GetCurrentAimAngle();
             GameObject fireball = Instantiate(cursorRotationAim.fireballPrefab, cursorRotationAim.projectileSpawnPoint.transform.position, Quaternion.Euler(new Vector3(0f, 0f, angle)));
+
             if (fireball.GetComponent<Fireball>() != null)
             {
                 fireball.GetComponent<Fireball>().Initialize(direction);
@@ -67,7 +68,17 @@ public class SpellManager : MonoBehaviour
     {
         if (barrierInstance != null)
         {
-            barrierInstance.SetActive(!barrierInstance.activeSelf);
+            // Place it at the current player position when activated and set it to despawn after 5 seconds
+            if (!barrierInstance.activeSelf)
+            {
+                barrierInstance.transform.position = playerTransform.position; // Set the position only when activating
+                barrierInstance.SetActive(true);
+                Invoke("DeactivateBarrier", 6.0f); // Schedule deactivation in 5 seconds
+            }
+            else
+            {
+                barrierInstance.SetActive(false);
+            }
         }
         else
         {
@@ -75,19 +86,17 @@ public class SpellManager : MonoBehaviour
         }
     }
 
+    // Method to deactivate the barrier
+    void DeactivateBarrier()
+    {
+        if (barrierInstance != null)
+        {
+            barrierInstance.SetActive(false);
+        }
+    }
+
     void Update()
     {
-        if (barrierInstance != null && barrierInstance.activeSelf)
-        {
-            // Update the barrier's position to be at the player's position
-            barrierInstance.transform.position = playerTransform.position;
-
-            // Update the rotation to face towards the cursor
-            Vector2 direction = cursorRotationAim.GetCurrentAimDirection();
-            float angle = cursorRotationAim.GetCurrentAimAngle();
-            barrierInstance.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-        }
-
         if (Input.GetKeyDown(KeyCode.B)) // Press B to cast barrier
         {
             CastSpell("uruz");

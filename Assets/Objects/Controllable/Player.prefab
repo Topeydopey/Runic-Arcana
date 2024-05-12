@@ -6190,6 +6190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f8c08c644c71ce4e94c69719e086a6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireballPrefab: {fileID: 5675738797278354900, guid: bccdbc89249a21748a3ca77e0cea01ad, type: 3}
+  projectileSpawnPoint: {fileID: 1106136715279490375}
 --- !u!1 &8900084161273598740
 GameObject:
   m_ObjectHideFlags: 0
