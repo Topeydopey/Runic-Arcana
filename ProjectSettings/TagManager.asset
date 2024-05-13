@@ -8,6 +8,7 @@ TagManager:
   - Fireball
   - Enemy
   - Pickup
+  - Hint
   layers:
   - Default
   - TransparentFX
