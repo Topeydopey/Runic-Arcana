@@ -193,16 +193,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   speed: 2
-  boostSpeed: 10
+  boostSpeed: 20
   boostDuration: 2
   teleportInEffectPrefab: {fileID: 7701690154805301451, guid: fa1c11efc09b72f4f9e2a6bdc70a01dc, type: 3}
   teleportOutEffectPrefab: {fileID: 7701690154805301451, guid: fa1c11efc09b72f4f9e2a6bdc70a01dc, type: 3}
-  teleportRange: 3
-  teleportCooldown: 2
-  knockbackDuration: 3
-  chaseThreshold: 7
-  teleportThreshold: 8
-  stopDuration: 3
+  teleportRange: 1.5
+  teleportCooldown: 3
+  chaseThreshold: 15
+  teleportThreshold: 20
+  stopDuration: 2
 --- !u!114 &6583397913927865962
 MonoBehaviour:
   m_ObjectHideFlags: 0
