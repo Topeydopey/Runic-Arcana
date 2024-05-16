@@ -14722,8 +14722,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a24786cde13d6f54baca5e4dd613d339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRange: 9
-  chargeSpeed: 4
+  detectionRange: 7
+  leapSpeed: 5
   moveSpeed: 1
 --- !u!50 &1755914074
 Rigidbody2D:

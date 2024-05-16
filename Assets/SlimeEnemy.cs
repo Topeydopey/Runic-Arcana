@@ -1,31 +1,42 @@
 using UnityEngine;
+using System.Collections;
 
 public class SlimeEnemy : MonoBehaviour
 {
     public float detectionRange = 5.0f;
     public float chargeSpeed = 2.0f;
+    public float leapSpeed = 5.0f;
     public float moveSpeed = 1.0f;
+    public int maxHealth = 2;  // Maximum health
+    private int currentHealth;
     private Transform player;
     private Vector2 randomDirection;
     private float moveInterval = 2.0f; // Interval in seconds between direction changes
+    private bool isLeaping = false;
+    private Animator animator;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        animator = GetComponent<Animator>();
+        currentHealth = maxHealth;
         InvokeRepeating("ChangeDirection", 0, moveInterval);
     }
 
     void Update()
     {
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        if (!isLeaping)
+        {
+            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-        if (distanceToPlayer < detectionRange)
-        {
-            ChargePlayer();
-        }
-        else
-        {
-            MoveRandomly();
+            if (distanceToPlayer < detectionRange)
+            {
+                StartCoroutine(LeapAtPlayer());
+            }
+            else
+            {
+                MoveRandomly();
+            }
         }
     }
 
@@ -34,6 +45,11 @@ public class SlimeEnemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(1);
+        }
+        else if (collision.gameObject.CompareTag("Fireball"))
+        {
+            TakeDamage(1);
+            Destroy(collision.gameObject); // Destroy the fireball upon collision
         }
     }
 
@@ -47,8 +63,52 @@ public class SlimeEnemy : MonoBehaviour
         transform.Translate(randomDirection * moveSpeed * Time.deltaTime);
     }
 
-    void ChargePlayer()
+    IEnumerator LeapAtPlayer()
     {
-        transform.position = Vector3.MoveTowards(transform.position, player.position, chargeSpeed * Time.deltaTime);
+        isLeaping = true;
+        animator.SetBool("IsLeaping", true);
+
+        // Stop for a moment before leaping
+        yield return new WaitForSeconds(0.5f);
+
+        Vector3 leapDirection = (player.position - transform.position).normalized;
+
+        float leapDuration = 0.5f;
+        float elapsedTime = 0;
+
+        while (elapsedTime < leapDuration)
+        {
+            transform.Translate(leapDirection * leapSpeed * Time.deltaTime);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Stop for 1 second after leaping
+        yield return new WaitForSeconds(1.0f);
+
+        animator.SetBool("IsLeaping", false);
+        isLeaping = false;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        animator.SetTrigger("TakeDamage");
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        animator.SetTrigger("Die");
+        // Optionally, disable the slime enemy's ability to move or interact
+        GetComponent<Collider2D>().enabled = false;
+        this.enabled = false; // Disable this script
+
+        // Destroy the game object after the death animation finishes
+        Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
     }
 }
