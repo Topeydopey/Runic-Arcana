@@ -1,13 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Unity.VisualScripting;
-
 
 public class SpellManager : MonoBehaviour
 {
-    public GameObject targetGameObject;
-    // Call this method with the gesture ID when a gesture is recognized.
+    public CursorRotationAim cursorRotationAim; // Assign this in the inspector
+    public GameObject barrierPrefab; // Assign the barrier prefab in the inspector
+    public Transform playerTransform; // Assign the player's transform here in the inspector
+    private GameObject barrierInstance; // Holds the instantiated barrier
+
+    void Start()
+    {
+        // Check if the player's transform is assigned
+        if (playerTransform == null)
+        {
+            Debug.LogError("Player Transform is not assigned in the SpellManager.");
+            return;
+        }
+
+        // Instantiate the barrier at the start but keep it deactivated
+        if (barrierPrefab != null)
+        {
+            barrierInstance = Instantiate(barrierPrefab, playerTransform.position, Quaternion.identity);
+            barrierInstance.SetActive(false);
+        }
+        else
+        {
+            Debug.LogError("Barrier prefab not assigned.");
+        }
+    }
+
     public void CastSpell(string spellId)
     {
         switch (spellId)
@@ -15,46 +35,75 @@ public class SpellManager : MonoBehaviour
             case "kenaz":
                 CastFireball();
                 break;
-            // ... Add other cases for different spellIds if necessary.
-            case "Uruz":
-                TimeStop();
+            case "uruz":
+                ToggleBarrier();
                 break;
-                // case "Thurisaz":
-                //     CastKnockback();
-                //     break;
         }
     }
 
-    // This method is called when a "Fireball" gesture is recognized.
     private void CastFireball()
     {
-        if (targetGameObject != null)
+        if (cursorRotationAim.fireballPrefab != null)
         {
-            CustomEvent.Trigger(targetGameObject, "FireballEvent");
+            Vector2 direction = cursorRotationAim.GetCurrentAimDirection();
+            float angle = cursorRotationAim.GetCurrentAimAngle();
+            GameObject fireball = Instantiate(cursorRotationAim.fireballPrefab, cursorRotationAim.projectileSpawnPoint.transform.position, Quaternion.Euler(new Vector3(0f, 0f, angle)));
+
+            if (fireball.GetComponent<Fireball>() != null)
+            {
+                fireball.GetComponent<Fireball>().Initialize(direction);
+            }
+            else
+            {
+                Debug.LogError("Fireball script not found on the instantiated prefab!");
+            }
         }
         else
         {
-            Debug.LogError("Target GameObject is not set for Visual Scripting!");
+            Debug.LogError("Fireball prefab not assigned.");
         }
-        // This is where you would implement the actual spell effect.
-        // For testing purposes, we'll just print a message to the console.
-        Debug.Log("Fireball spell cast!");
     }
 
-
-    private void TimeStop()
+    private void ToggleBarrier()
     {
-        if (targetGameObject != null)
+        if (barrierInstance != null)
         {
-            CustomEvent.Trigger(targetGameObject, "TimeStop");
+            // Place it at the current player position when activated and set it to despawn after 5 seconds
+            if (!barrierInstance.activeSelf)
+            {
+                barrierInstance.transform.position = playerTransform.position; // Set the position only when activating
+                barrierInstance.SetActive(true);
+                Invoke("DeactivateBarrier", 6.0f); // Schedule deactivation in 5 seconds
+            }
+            else
+            {
+                barrierInstance.SetActive(false);
+            }
         }
         else
         {
-            Debug.LogError("Target GameObject is not set for Visual Scripting!");
+            Debug.LogError("Barrier instance not found.");
         }
-        Debug.Log("Timestop activated!");
     }
 
+    // Method to deactivate the barrier
+    void DeactivateBarrier()
+    {
+        if (barrierInstance != null)
+        {
+            barrierInstance.SetActive(false);
+        }
+    }
 
-
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.B)) // Press B to cast barrier
+        {
+            CastSpell("uruz");
+        }
+        if (Input.GetKeyDown(KeyCode.T)) // Press B to cast barrier
+        {
+            CastSpell("kenaz");
+        }
+    }
 }

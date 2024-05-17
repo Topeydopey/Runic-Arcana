@@ -199,7 +199,7 @@ namespace GestureRecognizer
 			UpdateLines();
 
 			// Introduce a delay before recognition to prevent premature recognition using unscaled time
-			float recognitionDelay = 1f;  // Delay before starting recognition
+			float recognitionDelay = 0.7f;  // Delay before starting recognition
 			float elapsedTime = 0f;       // Timer to track the elapsed time using unscaled time
 
 			while (elapsedTime < recognitionDelay)
