@@ -97,18 +97,20 @@ public class SlimeEnemy : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Die();
+            StartCoroutine(Die());
         }
     }
 
-    void Die()
+    IEnumerator Die()
     {
         animator.SetTrigger("Die");
         // Optionally, disable the slime enemy's ability to move or interact
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false; // Disable this script
 
-        // Destroy the game object after the death animation finishes
-        Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
+        // Wait for the death animation to complete before destroying the game object
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+
+        Destroy(gameObject);
     }
 }

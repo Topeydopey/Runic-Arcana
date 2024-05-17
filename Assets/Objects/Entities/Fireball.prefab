@@ -246,3 +246,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   lifetime: 5
+  damage: 1
+  animator: {fileID: 2897330667828448179}
+  explosionAnimationClip: {fileID: 7400000, guid: c0f96fc75e8244b42a69e280b61dd1dd, type: 2}
