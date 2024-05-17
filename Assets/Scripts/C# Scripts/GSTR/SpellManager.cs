@@ -101,5 +101,9 @@ public class SpellManager : MonoBehaviour
         {
             CastSpell("uruz");
         }
+        if (Input.GetKeyDown(KeyCode.T)) // Press B to cast barrier
+        {
+            CastSpell("kenaz");
+        }
     }
 }

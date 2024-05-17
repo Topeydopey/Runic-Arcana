@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3399715889242415517}
   m_Layer: 0
   m_Name: Fireball
-  m_TagString: Untagged
+  m_TagString: Fireball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -245,3 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  lifetime: 5
+  damage: 1
+  animator: {fileID: 2897330667828448179}
+  explosionAnimationClip: {fileID: 7400000, guid: c0f96fc75e8244b42a69e280b61dd1dd, type: 2}
