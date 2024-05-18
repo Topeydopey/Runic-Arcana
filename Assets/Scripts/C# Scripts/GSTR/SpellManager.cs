@@ -7,6 +7,11 @@ public class SpellManager : MonoBehaviour
     public Transform playerTransform; // Assign the player's transform here in the inspector
     private GameObject barrierInstance; // Holds the instantiated barrier
 
+    // Add a reference to the player's Animator
+    private Animator playerAnimator;
+    private bool isCasting = false;
+    private string queuedSpellId;
+
     void Start()
     {
         // Check if the player's transform is assigned
@@ -14,6 +19,13 @@ public class SpellManager : MonoBehaviour
         {
             Debug.LogError("Player Transform is not assigned in the SpellManager.");
             return;
+        }
+
+        // Get the Animator component from the player
+        playerAnimator = playerTransform.GetComponent<Animator>();
+        if (playerAnimator == null)
+        {
+            Debug.LogError("Animator not found on the player.");
         }
 
         // Instantiate the barrier at the start but keep it deactivated
@@ -30,14 +42,45 @@ public class SpellManager : MonoBehaviour
 
     public void CastSpell(string spellId)
     {
+        if (isCasting)
+        {
+            // Queue the spell to cast after current cast is finished
+            queuedSpellId = spellId;
+            return;
+        }
+
         switch (spellId)
         {
             case "kenaz":
-                CastFireball();
+                StartFireballCasting();
                 break;
             case "uruz":
                 ToggleBarrier();
                 break;
+        }
+    }
+
+    private void StartFireballCasting()
+    {
+        // Trigger the fireball animation
+        if (playerAnimator != null)
+        {
+            playerAnimator.SetTrigger("Cast");
+            isCasting = true; // Indicate that casting is in progress
+        }
+    }
+
+    // This method will be called by the animation event at the end of the fireball casting animation
+    public void OnCastAnimationEnd()
+    {
+        CastFireball();
+        isCasting = false; // Indicate that casting is finished
+
+        // If there is a queued spell, cast it
+        if (!string.IsNullOrEmpty(queuedSpellId))
+        {
+            CastSpell(queuedSpellId);
+            queuedSpellId = null;
         }
     }
 
@@ -73,7 +116,7 @@ public class SpellManager : MonoBehaviour
             {
                 barrierInstance.transform.position = playerTransform.position; // Set the position only when activating
                 barrierInstance.SetActive(true);
-                Invoke("DeactivateBarrier", 6.0f); // Schedule deactivation in 5 seconds
+                Invoke("DeactivateBarrier", 6.0f); // Schedule deactivation in 6 seconds
             }
             else
             {
@@ -101,7 +144,7 @@ public class SpellManager : MonoBehaviour
         {
             CastSpell("uruz");
         }
-        if (Input.GetKeyDown(KeyCode.T)) // Press B to cast barrier
+        if (Input.GetKeyDown(KeyCode.T)) // Press T to cast fireball
         {
             CastSpell("kenaz");
         }

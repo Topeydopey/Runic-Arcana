@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Pickup
   - Hint
+  - Obstacle
   layers:
   - Default
   - TransparentFX
