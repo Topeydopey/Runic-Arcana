@@ -243,6 +243,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Shield_Down-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 0
+        width: 51
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92d6828a86d635c4880a3950b5579c15
+      internalID: -1943794618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -261,6 +282,7 @@ TextureImporter:
       Shield_Down-Sheet_4: 936056200
       Shield_Down-Sheet_5: 1053413599
       Shield_Down-Sheet_6: 2000473598
+      Shield_Down-Sheet_7: -1943794618
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
