@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement; // Add this line
 
 public class SpellManager : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class SpellManager : MonoBehaviour
     private Animator playerAnimator;
     private bool isCasting = false;
     private string queuedSpellId;
+
+    // Add a reference to the barrier's Animator
+    private Animator barrierAnimator;
 
     void Start()
     {
@@ -33,6 +37,11 @@ public class SpellManager : MonoBehaviour
         {
             barrierInstance = Instantiate(barrierPrefab, playerTransform.position, Quaternion.identity);
             barrierInstance.SetActive(false);
+            barrierAnimator = barrierInstance.GetComponent<Animator>();
+            if (barrierAnimator == null)
+            {
+                Debug.LogError("Animator not found on the barrier.");
+            }
         }
         else
         {
@@ -57,7 +66,16 @@ public class SpellManager : MonoBehaviour
             case "uruz":
                 ToggleBarrier();
                 break;
+            case "restart":
+                RestartLevel(); // Call the method to restart the level
+                break;
         }
+    }
+
+    private void RestartLevel()
+    {
+        // Restart the current level
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void StartFireballCasting()
@@ -116,11 +134,13 @@ public class SpellManager : MonoBehaviour
             {
                 barrierInstance.transform.position = playerTransform.position; // Set the position only when activating
                 barrierInstance.SetActive(true);
-                Invoke("DeactivateBarrier", 6.0f); // Schedule deactivation in 6 seconds
+                barrierAnimator.SetTrigger("BarrierUp"); // Trigger the barrier up animation
+                Invoke("DeactivateBarrier", 5.0f); // Schedule deactivation in 5 seconds
             }
             else
             {
-                barrierInstance.SetActive(false);
+                barrierAnimator.SetTrigger("BarrierDown"); // Trigger the barrier down animation
+                Invoke("DisableBarrier", 1.0f); // Schedule disabling after the animation duration
             }
         }
         else
@@ -131,6 +151,15 @@ public class SpellManager : MonoBehaviour
 
     // Method to deactivate the barrier
     void DeactivateBarrier()
+    {
+        if (barrierInstance != null)
+        {
+            barrierAnimator.SetTrigger("BarrierDown"); // Trigger the barrier down animation
+            Invoke("DisableBarrier", 1.0f); // Schedule disabling after the animation duration
+        }
+    }
+
+    void DisableBarrier()
     {
         if (barrierInstance != null)
         {
