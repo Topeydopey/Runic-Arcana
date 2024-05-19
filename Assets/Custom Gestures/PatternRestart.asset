@@ -10,23 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ce0fdb4e39b5744abf0c061bd2a3e30, type: 3}
-  m_Name: PatternThurisaz
+  m_Name: PatternRestart
   m_EditorClassIdentifier: 
-  id: thurisaz
+  id: restart
   points: []
   gesture:
     lines:
     - points:
-      - {x: 0.3233831, y: 0.114427865}
-      - {x: 0.3283582, y: 0.9303483}
+      - {x: 0.125, y: 0.875}
+      - {x: 0.875, y: 0.125}
       closedLine: 0
     - points:
-      - {x: 0.33333334, y: 0.78606963}
-      - {x: 0.7562189, y: 0.5074627}
-      closedLine: 0
-    - points:
-      - {x: 0.3125, y: 0.25}
-      - {x: 0.75, y: 0.5}
+      - {x: 0.875, y: 0.875}
+      - {x: 0.125, y: 0.125}
       closedLine: 0
   useLinesOrder: 0
   useLinesDirections: 0

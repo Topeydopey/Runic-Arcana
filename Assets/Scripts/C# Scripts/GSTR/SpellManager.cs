@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement; // Add this line
 
 public class SpellManager : MonoBehaviour
 {
@@ -65,7 +66,16 @@ public class SpellManager : MonoBehaviour
             case "uruz":
                 ToggleBarrier();
                 break;
+            case "restart":
+                RestartLevel(); // Call the method to restart the level
+                break;
         }
+    }
+
+    private void RestartLevel()
+    {
+        // Restart the current level
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void StartFireballCasting()
