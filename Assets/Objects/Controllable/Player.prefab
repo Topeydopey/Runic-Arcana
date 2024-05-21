@@ -1560,7 +1560,6 @@ GameObject:
   - component: {fileID: 7144638642570032658}
   - component: {fileID: 990158804338659203}
   - component: {fileID: 3917593761961572318}
-  - component: {fileID: 296880432697593143}
   - component: {fileID: 792732537220834072}
   m_Layer: 6
   m_Name: Player
@@ -1795,21 +1794,6 @@ MonoBehaviour:
   cursorRotationAim: {fileID: 2481263470150020247}
   barrierPrefab: {fileID: 3633697147699920977, guid: 2eeed1154fafcb54b917e00843d5c7a6, type: 3}
   playerTransform: {fileID: 2537352360589857528}
---- !u!114 &296880432697593143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1541629874981337204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9838e4ca20f844f4baeaa7a7f9d1b447, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetObjects:
-  - {fileID: 6641601957376147967}
-  objectTag: PickupObject
 --- !u!114 &792732537220834072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4779,7 +4763,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &9185618764267703729
 RectTransform:
   m_ObjectHideFlags: 0

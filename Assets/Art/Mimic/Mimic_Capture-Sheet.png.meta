@@ -1,0 +1,1221 @@
+fileFormatVersion: 2
+guid: fe737aba551ef7d4d87d28fca1ac683c
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9c7e58a44a358c4e81d87d61db9749c
+      internalID: -479760308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 0
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 942180f8fae57c344a5f98bc64805e18
+      internalID: -950058824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 0
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e137953908e56194282d766900be23d4
+      internalID: 474711388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1380254d4e479cf4e89a15fe6a525172
+      internalID: 1040882153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 0
+        width: 19
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c07bc3004af43e44085096eae90552a0
+      internalID: 1866488294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 0
+        width: 19
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11c060417ca398446b5639d745dce9ef
+      internalID: 1621521216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 0
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abd8a3239965ba14ea0ac82a93d86c9f
+      internalID: 963638132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 0
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 828bfdfc002466a43bec2ebaeb5b3aca
+      internalID: 364932129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 0
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 592e5e34635245c49baddfbb9c6fb2e8
+      internalID: 1478391827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 0
+        width: 19
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acb275ce428eab54790f83c67b8313ea
+      internalID: 419859538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 0
+        width: 19
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a32e84e186f83e94ba2f3d760e8b2ad2
+      internalID: 495696709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 3
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a101d645409f4f4eb7daec977f900fd
+      internalID: 10527823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 3
+        width: 21
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 758978dcf4876864eb6979e7da5cdc3e
+      internalID: 339704143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 1
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab8e33af2dd573d4d8e7c1c4e9339aa1
+      internalID: -1850850089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 0
+        width: 35
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c02bf952b1f89a43b9286eaeefc4429
+      internalID: 1594803130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 0
+        width: 36
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4e616a6cb69d724482a01d0cc32c9ef
+      internalID: -1965302393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 0
+        width: 36
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 288be307f6807914888d6102e69b6c63
+      internalID: 678603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 0
+        width: 36
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff86cc5f725ce854ebb5973002616def
+      internalID: 1986253970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 0
+        width: 36
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c867ed440b7b814e8c811371bc8e4c5
+      internalID: -1156743602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 0
+        width: 36
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db4445316f677fc48978d56976077130
+      internalID: -643713768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 0
+        width: 36
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a452e77b7dbea074d9c5f9e868db12ce
+      internalID: -2017993958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 0
+        width: 36
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e4dbf2f72f38b64bb6423bfea4ed318
+      internalID: -49637998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 861
+        y: 0
+        width: 36
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c76e5dfd58a90c648912365b1d649ab6
+      internalID: 31191320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 36
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34a0d3491b85a364db36f69cb9c63055
+      internalID: 1468178844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 0
+        width: 36
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 324c83c164621194c993f2fba273f0f1
+      internalID: 781801847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 0
+        width: 36
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d73c321c97c0e1d479e6062e9c15f2d9
+      internalID: 494076930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 0
+        width: 36
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 901e8831c89da9b4aae444aa007a0dbc
+      internalID: 1762284611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 0
+        width: 36
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2664a5b893406b246b7ab1b9e69ecaad
+      internalID: -1493239437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 1095
+        y: 0
+        width: 36
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2226d1e210d003d43a526e07150709c7
+      internalID: 1778485245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 0
+        width: 36
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 523321dce7b925441b166c4851a1ed9e
+      internalID: 1246173999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 1173
+        y: 0
+        width: 36
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 504a5ddfb626ea14180e5174241f9df0
+      internalID: -381050107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 1212
+        y: 0
+        width: 37
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d031965641fc24b4ab17146c77164fa9
+      internalID: -1010787280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 1251
+        y: 0
+        width: 37
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a16268e66a82b2428363de894353fb4
+      internalID: -606725344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 1290
+        y: 0
+        width: 36
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdeeabb038a8fbf469419c8560efa6bc
+      internalID: 827243208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 1329
+        y: 0
+        width: 36
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2721a84374a5c8742a39fa1a7f471ba3
+      internalID: 775713528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 1368
+        y: 0
+        width: 36
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a1991d9ae26bc2448f3f18ec80db0ee
+      internalID: 1523212930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 1407
+        y: 0
+        width: 36
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3720b849bde3602408b75838a58b3d34
+      internalID: -2013408842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 0
+        width: 36
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adb2cd909d0e15641927f93a05afc86d
+      internalID: -1610311530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 1485
+        y: 0
+        width: 36
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20ab865f118d2d14ea5f79e5b9d04364
+      internalID: 1028739382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 1524
+        y: 0
+        width: 36
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af93e2a1d27337245926222f0076baef
+      internalID: 620126030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_41
+      rect:
+        serializedVersion: 2
+        x: 1562
+        y: 0
+        width: 37
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e563ab797b14baa4facd86426ddf4790
+      internalID: -1428276548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_42
+      rect:
+        serializedVersion: 2
+        x: 1599
+        y: 0
+        width: 39
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d85ee8ee6fffd0449797e92a9a5ff9d
+      internalID: 816914401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_43
+      rect:
+        serializedVersion: 2
+        x: 1641
+        y: 1
+        width: 36
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 035b2951a03c9f74d858629590747d62
+      internalID: 727629626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_44
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 1
+        width: 36
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b5ccadaab6f4bb4cb8a9dc9348a4833
+      internalID: 716244302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_45
+      rect:
+        serializedVersion: 2
+        x: 1718
+        y: 1
+        width: 37
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed5293b94703e5141ac925d3fff927ae
+      internalID: 932943696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_46
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 2
+        width: 38
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2e204d0a0b07b242bebc72812511d60
+      internalID: 729046461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_47
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 13
+        width: 29
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 044f82d674fae464f9550396632f1423
+      internalID: -1363823038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_48
+      rect:
+        serializedVersion: 2
+        x: 1833
+        y: 13
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 532f960817491a442b9cccfff596cdad
+      internalID: -1596590059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_Capture-Sheet_49
+      rect:
+        serializedVersion: 2
+        x: 1875
+        y: 13
+        width: 19
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71caf697ca3fac647a9f78eb381bd502
+      internalID: 1704805071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Mimic_Capture-Sheet_0: -479760308
+      Mimic_Capture-Sheet_1: -950058824
+      Mimic_Capture-Sheet_10: 495696709
+      Mimic_Capture-Sheet_11: 10527823
+      Mimic_Capture-Sheet_12: 339704143
+      Mimic_Capture-Sheet_13: -1850850089
+      Mimic_Capture-Sheet_14: -2108198646
+      Mimic_Capture-Sheet_15: 1594803130
+      Mimic_Capture-Sheet_16: -1965302393
+      Mimic_Capture-Sheet_17: 678603
+      Mimic_Capture-Sheet_18: 1986253970
+      Mimic_Capture-Sheet_19: -1156743602
+      Mimic_Capture-Sheet_2: 474711388
+      Mimic_Capture-Sheet_20: -643713768
+      Mimic_Capture-Sheet_21: -2017993958
+      Mimic_Capture-Sheet_22: -49637998
+      Mimic_Capture-Sheet_23: 31191320
+      Mimic_Capture-Sheet_24: 1468178844
+      Mimic_Capture-Sheet_25: 781801847
+      Mimic_Capture-Sheet_26: 494076930
+      Mimic_Capture-Sheet_27: 1762284611
+      Mimic_Capture-Sheet_28: -1493239437
+      Mimic_Capture-Sheet_29: 1778485245
+      Mimic_Capture-Sheet_3: 1040882153
+      Mimic_Capture-Sheet_30: 1246173999
+      Mimic_Capture-Sheet_31: -381050107
+      Mimic_Capture-Sheet_32: -1010787280
+      Mimic_Capture-Sheet_33: -606725344
+      Mimic_Capture-Sheet_34: 827243208
+      Mimic_Capture-Sheet_35: 775713528
+      Mimic_Capture-Sheet_36: 1523212930
+      Mimic_Capture-Sheet_37: -2013408842
+      Mimic_Capture-Sheet_38: -1610311530
+      Mimic_Capture-Sheet_39: 1028739382
+      Mimic_Capture-Sheet_4: 1866488294
+      Mimic_Capture-Sheet_40: 620126030
+      Mimic_Capture-Sheet_41: -1428276548
+      Mimic_Capture-Sheet_42: 816914401
+      Mimic_Capture-Sheet_43: 727629626
+      Mimic_Capture-Sheet_44: 716244302
+      Mimic_Capture-Sheet_45: 932943696
+      Mimic_Capture-Sheet_46: 729046461
+      Mimic_Capture-Sheet_47: -1363823038
+      Mimic_Capture-Sheet_48: -1596590059
+      Mimic_Capture-Sheet_49: 1704805071
+      Mimic_Capture-Sheet_5: 1621521216
+      Mimic_Capture-Sheet_50: -1547829006
+      Mimic_Capture-Sheet_51: -1165625115
+      Mimic_Capture-Sheet_52: 1537935588
+      Mimic_Capture-Sheet_53: -1963753028
+      Mimic_Capture-Sheet_54: -1876491443
+      Mimic_Capture-Sheet_55: 810229065
+      Mimic_Capture-Sheet_56: -1395031356
+      Mimic_Capture-Sheet_57: 620869057
+      Mimic_Capture-Sheet_58: -495631443
+      Mimic_Capture-Sheet_59: 731391599
+      Mimic_Capture-Sheet_6: 963638132
+      Mimic_Capture-Sheet_60: -690023703
+      Mimic_Capture-Sheet_61: -1883215089
+      Mimic_Capture-Sheet_62: -891736300
+      Mimic_Capture-Sheet_63: 422074852
+      Mimic_Capture-Sheet_64: -158059461
+      Mimic_Capture-Sheet_65: -759079491
+      Mimic_Capture-Sheet_66: -1688102696
+      Mimic_Capture-Sheet_67: 109216936
+      Mimic_Capture-Sheet_68: 174956680
+      Mimic_Capture-Sheet_69: -376091056
+      Mimic_Capture-Sheet_7: 364932129
+      Mimic_Capture-Sheet_70: -370112840
+      Mimic_Capture-Sheet_71: -1500622062
+      Mimic_Capture-Sheet_72: 1418349365
+      Mimic_Capture-Sheet_73: -1670742824
+      Mimic_Capture-Sheet_74: -957947898
+      Mimic_Capture-Sheet_75: 1145700004
+      Mimic_Capture-Sheet_76: -1306905414
+      Mimic_Capture-Sheet_77: -738952341
+      Mimic_Capture-Sheet_8: 1478391827
+      Mimic_Capture-Sheet_9: 419859538
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

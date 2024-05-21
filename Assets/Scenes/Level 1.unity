@@ -116366,6 +116366,10 @@ PrefabInstance:
       propertyPath: recognizer
       value: 
       objectReference: {fileID: 2144753595}
+    - target: {fileID: 6641601957376147967, guid: 54b2737f1fd25ac4eabff0664433bc77, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7144638642570032658, guid: 54b2737f1fd25ac4eabff0664433bc77, type: 3}
       propertyPath: healthDisplay
       value: 
