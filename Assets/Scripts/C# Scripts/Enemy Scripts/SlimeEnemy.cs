@@ -14,6 +14,7 @@ public class SlimeEnemy : MonoBehaviour
     private float moveInterval = 2.0f; // Interval in seconds between direction changes
     private bool isLeaping = false;
     private Animator animator;
+    private bool facingRight = true; // Assuming the initial facing direction is right
 
     void Start()
     {
@@ -56,6 +57,7 @@ public class SlimeEnemy : MonoBehaviour
     void ChangeDirection()
     {
         randomDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+        FlipSprite(randomDirection.x);
     }
 
     void MoveRandomly()
@@ -72,6 +74,7 @@ public class SlimeEnemy : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         Vector3 leapDirection = (player.position - transform.position).normalized;
+        FlipSprite(leapDirection.x);
 
         float leapDuration = 0.5f;
         float elapsedTime = 0;
@@ -88,6 +91,24 @@ public class SlimeEnemy : MonoBehaviour
 
         animator.SetBool("IsLeaping", false);
         isLeaping = false;
+    }
+
+    void FlipSprite(float direction)
+    {
+        if (direction > 0 && !facingRight)
+        {
+            facingRight = true;
+            Vector3 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
+        }
+        else if (direction < 0 && facingRight)
+        {
+            facingRight = false;
+            Vector3 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
+        }
     }
 
     public void TakeDamage(int damage)
