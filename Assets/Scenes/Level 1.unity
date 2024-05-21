@@ -46015,6 +46015,7 @@ Transform:
   - {fileID: 1906788321}
   - {fileID: 1417966117}
   - {fileID: 1352824727}
+  - {fileID: 1882206523}
   - {fileID: 108170547}
   - {fileID: 429275505}
   m_Father: {fileID: 0}
@@ -54135,6 +54136,88 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6452621633999021894, guid: 20acc02a003242542af4d9c9f145717f, type: 3}
   m_PrefabInstance: {fileID: 1877390850}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1882206522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1882206523}
+  - component: {fileID: 1882206524}
+  m_Layer: 0
+  m_Name: water part 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1882206523
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882206522}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 153, y: -37.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1349318763}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1882206524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882206522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 1
+  m_LightType: 1
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 0.1728818, g: 0.71754205, b: 0.990566, a: 1}
+  m_Intensity: 0.66
+  m_LightVolumeIntensity: 1
+  m_LightVolumeIntensityEnabled: 0
+  m_ApplyToSortingLayers: 81d39bbf9f379b08
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowIntensityEnabled: 0
+  m_ShadowIntensity: 0.75
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: 0.18464994, y: -1.4997501, z: 0}
+    m_Extent: {x: 5.21875, y: 6.20055, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.39
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -4.6371307, y: -7.039654, z: 0}
+  - {x: 5.0132904, y: -7.311371, z: 0}
+  - {x: 4.887558, y: 4.3100014, z: 0}
+  - {x: -4.6434784, y: 4.2474403, z: 0}
 --- !u!4 &1883822327 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1879801074729940585, guid: b3e4570201b6b2741944278a51b1b167, type: 3}
@@ -116441,5 +116524,5 @@ SceneRoots:
   - {fileID: 1955017581}
   - {fileID: 312317624}
   - {fileID: 1093907247}
-  - {fileID: 1349318763}
   - {fileID: 1939111465}
+  - {fileID: 1349318763}
