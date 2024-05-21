@@ -212,3 +212,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1fa1b20963960f499f06fc8f53661de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detectionRange: 5
+  chargeSpeed: 2
+  teleportRange: 7
+  moveSpeed: 1
+  maxHealth: 2
+  teleportParticlePrefab: {fileID: 7701690154805301451, guid: fa1c11efc09b72f4f9e2a6bdc70a01dc, type: 3}
