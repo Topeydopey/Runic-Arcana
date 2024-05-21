@@ -1,38 +1,33 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // Add this line
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class SpellManager : MonoBehaviour
 {
-    public CursorRotationAim cursorRotationAim; // Assign this in the inspector
-    public GameObject barrierPrefab; // Assign the barrier prefab in the inspector
-    public Transform playerTransform; // Assign the player's transform here in the inspector
-    private GameObject barrierInstance; // Holds the instantiated barrier
-
-    // Add a reference to the player's Animator
+    public CursorRotationAim cursorRotationAim;
+    public GameObject barrierPrefab;
+    public Transform playerTransform;
+    private GameObject barrierInstance;
     private Animator playerAnimator;
     private bool isCasting = false;
     private string queuedSpellId;
-
-    // Add a reference to the barrier's Animator
     private Animator barrierAnimator;
+    private Coroutine castingCoroutine;
 
     void Start()
     {
-        // Check if the player's transform is assigned
         if (playerTransform == null)
         {
             Debug.LogError("Player Transform is not assigned in the SpellManager.");
             return;
         }
 
-        // Get the Animator component from the player
         playerAnimator = playerTransform.GetComponent<Animator>();
         if (playerAnimator == null)
         {
             Debug.LogError("Animator not found on the player.");
         }
 
-        // Instantiate the barrier at the start but keep it deactivated
         if (barrierPrefab != null)
         {
             barrierInstance = Instantiate(barrierPrefab, playerTransform.position, Quaternion.identity);
@@ -53,7 +48,6 @@ public class SpellManager : MonoBehaviour
     {
         if (isCasting)
         {
-            // Queue the spell to cast after current cast is finished
             queuedSpellId = spellId;
             return;
         }
@@ -61,44 +55,38 @@ public class SpellManager : MonoBehaviour
         switch (spellId)
         {
             case "kenaz":
-                StartFireballCasting();
+                castingCoroutine = StartCoroutine(CastFireballRoutine());
                 break;
             case "uruz":
                 ToggleBarrier();
                 break;
             case "restart":
-                RestartLevel(); // Call the method to restart the level
+                RestartLevel();
                 break;
         }
     }
 
     private void RestartLevel()
     {
-        // Restart the current level
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    private void StartFireballCasting()
+    private IEnumerator CastFireballRoutine()
     {
-        // Trigger the fireball animation
+        isCasting = true;
         if (playerAnimator != null)
         {
             playerAnimator.SetTrigger("Cast");
-            isCasting = true; // Indicate that casting is in progress
+            yield return new WaitForSeconds(playerAnimator.GetCurrentAnimatorStateInfo(0).length);
         }
-    }
-
-    // This method will be called by the animation event at the end of the fireball casting animation
-    public void OnCastAnimationEnd()
-    {
         CastFireball();
-        isCasting = false; // Indicate that casting is finished
+        isCasting = false;
 
-        // If there is a queued spell, cast it
         if (!string.IsNullOrEmpty(queuedSpellId))
         {
-            CastSpell(queuedSpellId);
+            string spellToCast = queuedSpellId;
             queuedSpellId = null;
+            CastSpell(spellToCast);
         }
     }
 
@@ -129,18 +117,17 @@ public class SpellManager : MonoBehaviour
     {
         if (barrierInstance != null)
         {
-            // Place it at the current player position when activated and set it to despawn after 5 seconds
             if (!barrierInstance.activeSelf)
             {
-                barrierInstance.transform.position = playerTransform.position; // Set the position only when activating
+                barrierInstance.transform.position = playerTransform.position;
                 barrierInstance.SetActive(true);
-                barrierAnimator.SetTrigger("BarrierUp"); // Trigger the barrier up animation
-                Invoke("DeactivateBarrier", 5.0f); // Schedule deactivation in 5 seconds
+                barrierAnimator.SetTrigger("BarrierUp");
+                Invoke("DeactivateBarrier", 5.0f);
             }
             else
             {
-                barrierAnimator.SetTrigger("BarrierDown"); // Trigger the barrier down animation
-                Invoke("DisableBarrier", 1.0f); // Schedule disabling after the animation duration
+                barrierAnimator.SetTrigger("BarrierDown");
+                Invoke("DisableBarrier", 1.0f);
             }
         }
         else
@@ -149,13 +136,12 @@ public class SpellManager : MonoBehaviour
         }
     }
 
-    // Method to deactivate the barrier
     void DeactivateBarrier()
     {
         if (barrierInstance != null)
         {
-            barrierAnimator.SetTrigger("BarrierDown"); // Trigger the barrier down animation
-            Invoke("DisableBarrier", 1.0f); // Schedule disabling after the animation duration
+            barrierAnimator.SetTrigger("BarrierDown");
+            Invoke("DisableBarrier", 1.0f);
         }
     }
 
@@ -169,11 +155,11 @@ public class SpellManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B)) // Press B to cast barrier
+        if (Input.GetKeyDown(KeyCode.B))
         {
             CastSpell("uruz");
         }
-        if (Input.GetKeyDown(KeyCode.T)) // Press T to cast fireball
+        if (Input.GetKeyDown(KeyCode.T))
         {
             CastSpell("kenaz");
         }

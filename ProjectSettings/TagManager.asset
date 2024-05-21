@@ -10,6 +10,7 @@ TagManager:
   - Pickup
   - Hint
   - Obstacle
+  - PickupObject
   layers:
   - Default
   - TransparentFX
@@ -49,4 +50,7 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 144390047
+    locked: 0
+  - name: Water
+    uniqueID: 3214660481
     locked: 0

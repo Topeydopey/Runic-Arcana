@@ -1,18 +1,19 @@
 using UnityEngine;
 using System.Collections;
 
-public class SlimeEnemy : MonoBehaviour
+public class TeleportingSlimeEnemy : MonoBehaviour
 {
     public float detectionRange = 5.0f;
     public float chargeSpeed = 2.0f;
-    public float leapSpeed = 5.0f;
+    public float teleportRange = 7.0f;
     public float moveSpeed = 1.0f;
     public int maxHealth = 2;  // Maximum health
+    public GameObject teleportParticlePrefab; // Reference to the particle system prefab
     private int currentHealth;
     private Transform player;
     private Vector2 randomDirection;
     private float moveInterval = 2.0f; // Interval in seconds between direction changes
-    private bool isLeaping = false;
+    private bool isCharging = false;
     private Animator animator;
     private bool facingRight = true; // Assuming the initial facing direction is right
 
@@ -26,13 +27,13 @@ public class SlimeEnemy : MonoBehaviour
 
     void Update()
     {
-        if (!isLeaping)
+        if (!isCharging)
         {
-            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+            float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
             if (distanceToPlayer < detectionRange)
             {
-                StartCoroutine(LeapAtPlayer());
+                StartCoroutine(TeleportAndCharge());
             }
             else
             {
@@ -41,16 +42,19 @@ public class SlimeEnemy : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        Debug.Log("Trigger detected with: " + other.gameObject.tag);
+
+        if (other.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(1);
+            Debug.Log("Hit Player");
+            other.GetComponent<PlayerHealth>().TakeDamage(1);
         }
-        else if (collision.gameObject.CompareTag("Fireball"))
+        else if (other.CompareTag("Fireball"))
         {
+            Debug.Log("Hit Fireball");
             TakeDamage(1);
-            Destroy(collision.gameObject); // Destroy the fireball upon collision
         }
     }
 
@@ -62,35 +66,48 @@ public class SlimeEnemy : MonoBehaviour
 
     void MoveRandomly()
     {
+        animator.SetBool("IsMoving", true);
         transform.Translate(randomDirection * moveSpeed * Time.deltaTime);
     }
 
-    IEnumerator LeapAtPlayer()
+    IEnumerator TeleportAndCharge()
     {
-        isLeaping = true;
-        animator.SetBool("IsLeaping", true);
+        isCharging = true;
+        animator.SetBool("IsCharging", true);
 
-        // Stop for a moment before leaping
+        // Teleport to a position within teleportRange of the player
+        Vector2 teleportPosition = (Vector2)player.position + (Random.insideUnitCircle.normalized * teleportRange);
+
+        // Instantiate the teleport particle system at the current position before teleporting
+        Instantiate(teleportParticlePrefab, transform.position, Quaternion.identity);
+
+        // Teleport to the new position
+        transform.position = teleportPosition;
+
+        // Instantiate the teleport particle system at the new position after teleporting
+        Instantiate(teleportParticlePrefab, teleportPosition, Quaternion.identity);
+
+        // Stop for a moment before charging
         yield return new WaitForSeconds(0.5f);
 
-        Vector3 leapDirection = (player.position - transform.position).normalized;
-        FlipSprite(leapDirection.x);
+        Vector2 chargeDirection = ((Vector2)player.position - (Vector2)transform.position).normalized;
+        FlipSprite(chargeDirection.x);
 
-        float leapDuration = 0.5f;
+        float chargeDuration = 1.0f;
         float elapsedTime = 0;
 
-        while (elapsedTime < leapDuration)
+        while (elapsedTime < chargeDuration)
         {
-            transform.Translate(leapDirection * leapSpeed * Time.deltaTime);
+            transform.Translate(chargeDirection * chargeSpeed * Time.deltaTime);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        // Stop for 1 second after leaping
+        // Stop for 1 second after charging
         yield return new WaitForSeconds(1.0f);
 
-        animator.SetBool("IsLeaping", false);
-        isLeaping = false;
+        animator.SetBool("IsCharging", false);
+        isCharging = false;
     }
 
     void FlipSprite(float direction)
