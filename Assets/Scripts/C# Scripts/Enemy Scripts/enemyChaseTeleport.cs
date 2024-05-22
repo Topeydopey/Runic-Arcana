@@ -1,25 +1,33 @@
-using System.Collections;
 using UnityEngine;
+using System.Collections;
 
 public class EnemyChaseTeleport : MonoBehaviour
 {
     public Transform player;
     public float speed = 5.0f;
-    public float boostSpeed = 10.0f;  // Increased speed for the boost
-    public float boostDuration = 2.0f; // Duration of the boost in seconds
+    public float boostSpeed = 10.0f;
+    public float boostDuration = 2.0f;
     private Rigidbody2D rb;
     private float currentSpeed;
     private float boostEndTime;
-    private Vector2 boostTargetPosition; // Target position to boost towards
+    private Vector2 boostTargetPosition;
 
     // Teleportation effects
-    public GameObject teleportInEffectPrefab;  // Effect when the enemy appears
-    public GameObject teleportOutEffectPrefab; // Effect when the enemy disappears
+    public GameObject teleportInEffectPrefab;
+    public GameObject teleportOutEffectPrefab;
 
     // Teleportation settings
     public float teleportRange = 5.0f;
     public float teleportCooldown = 10.0f;
     private float lastTeleportTime = -10.0f;
+
+    // Detection range
+    public float detectionRange = 20.0f;
+
+    // Damage settings
+    public int damageToPlayer = 1;
+    public int maxHealth = 2; // Maximum health
+    private int currentHealth;
 
     // States
     private enum State
@@ -27,21 +35,27 @@ public class EnemyChaseTeleport : MonoBehaviour
         Idle,
         Chasing,
         Teleporting,
-        Boosting, // State during boosting
-        Stopped // Added stopped state for when hit by fireball
+        Boosting,
+        Stopped
     }
 
     private State currentState = State.Idle;
-    private bool isStopped = false; // Control whether the enemy can move or not
+    private bool isStopped = false;
 
     // Distance to start chasing and teleport threshold
     public float chaseThreshold = 10f;
     public float teleportThreshold = 15f;
-    public float stopDuration = 3.0f; // Time in seconds the enemy stops after being hit
+    public float stopDuration = 3.0f;
+
+    // Animation
+    private Animator animator;
+    private bool facingRight = true; // Assuming the initial facing direction is right
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        currentHealth = maxHealth;
         currentSpeed = speed;
     }
 
@@ -59,7 +73,7 @@ public class EnemyChaseTeleport : MonoBehaviour
         if (player != null && !isStopped)
         {
             float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-            Debug.Log("Distance to player: " + distanceToPlayer); // Log distance continuously
+            Debug.Log("Distance to player: " + distanceToPlayer);
 
             if (distanceToPlayer < chaseThreshold && currentState != State.Boosting)
             {
@@ -67,9 +81,10 @@ public class EnemyChaseTeleport : MonoBehaviour
                 {
                     Debug.Log("Changing State to Chasing");
                     currentState = State.Chasing;
+                    animator.SetBool("isWalking", true);
                 }
             }
-            else if (distanceToPlayer > teleportThreshold && Time.time > lastTeleportTime + teleportCooldown)
+            else if (distanceToPlayer > teleportThreshold && distanceToPlayer < detectionRange && Time.time > lastTeleportTime + teleportCooldown)
             {
                 if (currentState != State.Teleporting)
                 {
@@ -81,14 +96,15 @@ public class EnemyChaseTeleport : MonoBehaviour
             {
                 Debug.Log("Changing State to Idle");
                 currentState = State.Idle;
+                animator.SetBool("isWalking", false);
             }
         }
 
         if (Time.time > boostEndTime && currentState == State.Boosting)
         {
             Debug.Log("Boost has ended, changing State to Chasing");
-            currentSpeed = speed;  // Reset speed after boost duration
-            currentState = State.Chasing; // Continue chasing normally
+            currentSpeed = speed;
+            currentState = State.Chasing;
         }
     }
 
@@ -116,6 +132,9 @@ public class EnemyChaseTeleport : MonoBehaviour
             Vector2 targetPosition = currentState == State.Boosting ? boostTargetPosition : (Vector2)player.position;
             Vector2 newPosition = Vector2.MoveTowards(rb.position, targetPosition, currentSpeed * Time.fixedDeltaTime);
             rb.MovePosition(newPosition);
+
+            // Flip the enemy based on the movement direction
+            FlipSprite(newPosition.x - rb.position.x);
         }
     }
 
@@ -123,20 +142,20 @@ public class EnemyChaseTeleport : MonoBehaviour
     {
         if (!isStopped)
         {
-            Instantiate(teleportOutEffectPrefab, transform.position, Quaternion.identity); // Effect when disappearing
+            Instantiate(teleportOutEffectPrefab, transform.position, Quaternion.identity);
 
             Vector2 teleportDirection = (player.position - transform.position).normalized;
             Vector2 newPosition = new Vector2(player.position.x, player.position.y) - teleportDirection * teleportRange;
 
             rb.position = newPosition;
             lastTeleportTime = Time.time;
-            boostEndTime = Time.time + boostDuration;  // Set the end time for the boost
-            currentSpeed = boostSpeed;  // Set the speed to boost speed
-            boostTargetPosition = player.position;  // Set the target position for the boost
+            boostEndTime = Time.time + boostDuration;
+            currentSpeed = boostSpeed;
+            boostTargetPosition = player.position;
 
-            Instantiate(teleportInEffectPrefab, newPosition, Quaternion.identity); // Effect when appearing
-            Debug.Log("Teleported to: " + newPosition + " | Boosting to target position."); // Log new position
-            currentState = State.Boosting; // Change state to Boosting
+            Instantiate(teleportInEffectPrefab, newPosition, Quaternion.identity);
+            Debug.Log("Teleported to: " + newPosition + " | Boosting to target position.");
+            currentState = State.Boosting;
         }
     }
 
@@ -145,25 +164,67 @@ public class EnemyChaseTeleport : MonoBehaviour
         // Implement idle behavior (e.g., patrol around)
     }
 
+    void FlipSprite(float direction)
+    {
+        if (direction > 0 && !facingRight)
+        {
+            facingRight = true;
+            Vector3 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
+        }
+        else if (direction < 0 && facingRight)
+        {
+            facingRight = false;
+            Vector3 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
+        }
+    }
+
     public void ApplyStopEffect()
     {
         isStopped = true;
         currentState = State.Stopped;
+        animator.SetTrigger("isDamaged");
         Debug.Log("Enemy hit by fireball, stopped.");
         Invoke("ResumeMovement", stopDuration);
-        Invoke("DestroyEnemy", stopDuration + 3.0f); // Destroy the enemy a bit after it resumes movement
     }
 
-    void ResumeMovement()
+    public void TakeDamage(int damage)
     {
-        isStopped = false;
-        currentState = State.Idle;  // Ensure state is reset when movement resumes
-        Debug.Log("Resuming normal movement.");
+        currentHealth -= damage;
+        animator.SetTrigger("TakeDamage");
+
+        if (currentHealth <= 0)
+        {
+            StartCoroutine(Die());
+        }
     }
 
-    void DestroyEnemy()
+    IEnumerator Die()
     {
-        Debug.Log("Destroying enemy.");
+        animator.SetTrigger("Die");
+        // Optionally, disable the teleporter enemy's ability to move or interact
+        GetComponent<Collider2D>().enabled = false;
+        this.enabled = false; // Disable this script
+
+        // Wait for the death animation to complete before destroying the game object
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+
         Destroy(gameObject);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damageToPlayer);
+        }
+        else if (collision.gameObject.CompareTag("Fireball"))
+        {
+            TakeDamage(1);
+            Destroy(collision.gameObject); // Destroy the fireball on impact
+        }
     }
 }

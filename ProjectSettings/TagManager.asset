@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - Pickup
   - Hint
+  - Obstacle
+  - PickupObject
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - UI
   - Player
   - Pickup
-  - 
+  - Spell
   - 
   - 
   - 
@@ -45,4 +47,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Water
+    uniqueID: 3214660481
+    locked: 0
+  - name: Background
+    uniqueID: 144390047
     locked: 0

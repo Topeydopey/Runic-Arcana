@@ -31,7 +31,7 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetMouseButton(1))
         {
             if (!isUIActive)
             {
