@@ -15,6 +15,10 @@ public class SlimeEnemy : MonoBehaviour
     private bool isLeaping = false;
     private Animator animator;
     private bool facingRight = true; // Assuming the initial facing direction is right
+    private bool isDying = false; // Flag to check if the slime is dying
+
+    private float damageCooldown = 1.0f; // Cooldown period between damage applications
+    private float lastDamageTime; // Timestamp of the last damage application
 
     void Start()
     {
@@ -22,10 +26,13 @@ public class SlimeEnemy : MonoBehaviour
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
         InvokeRepeating("ChangeDirection", 0, moveInterval);
+        lastDamageTime = -damageCooldown; // Initialize to ensure immediate damage on first contact
     }
 
     void Update()
     {
+        if (isDying) return; // If dying, don't perform any other actions
+
         if (!isLeaping)
         {
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
@@ -45,12 +52,31 @@ public class SlimeEnemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(1);
+            ApplyDamage(collision.gameObject);
         }
         else if (collision.gameObject.CompareTag("Fireball"))
         {
             TakeDamage(1);
             Destroy(collision.gameObject); // Destroy the fireball upon collision
+        }
+    }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // Continuously damage the player if staying in collision with a cooldown
+            ApplyDamage(collision.gameObject);
+        }
+    }
+
+    void ApplyDamage(GameObject player)
+    {
+        if (Time.time >= lastDamageTime + damageCooldown)
+        {
+            player.GetComponent<PlayerHealth>().TakeDamage(1);
+            lastDamageTime = Time.time; // Update the last damage time
+            Debug.Log("Player damaged by slime");
         }
     }
 
@@ -113,6 +139,8 @@ public class SlimeEnemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (isDying) return; // If dying, don't take any more damage
+
         currentHealth -= damage;
         animator.SetTrigger("TakeDamage");
 
@@ -124,13 +152,23 @@ public class SlimeEnemy : MonoBehaviour
 
     IEnumerator Die()
     {
+        isDying = true;
         animator.SetTrigger("Die");
+        Debug.Log("Die trigger set");
+
         // Optionally, disable the slime enemy's ability to move or interact
-        GetComponent<Collider2D>().enabled = false;
+        GetComponent<Collider2D>().enabled = false; // Disable collisions
         this.enabled = false; // Disable this script
 
+        // Wait for a short moment to ensure the state transitions
+        yield return new WaitForSeconds(0.1f);
+
+        // Get the current animation length
+        float animationLength = animator.GetCurrentAnimatorStateInfo(0).length;
+        Debug.Log("Death animation length: " + animationLength);
+
         // Wait for the death animation to complete before destroying the game object
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+        yield return new WaitForSeconds(animationLength);
 
         Destroy(gameObject);
     }
