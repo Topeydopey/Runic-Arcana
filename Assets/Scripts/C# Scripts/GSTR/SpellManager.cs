@@ -6,6 +6,7 @@ public class SpellManager : MonoBehaviour
 {
     public CursorRotationAim cursorRotationAim;
     public GameObject barrierPrefab;
+    public GameObject lightningBoltPrefab; // Reference to the lightning bolt prefab
     public Transform playerTransform;
     private GameObject barrierInstance;
     private Animator playerAnimator;
@@ -13,6 +14,14 @@ public class SpellManager : MonoBehaviour
     private string queuedSpellId;
     private Animator barrierAnimator;
     private Coroutine castingCoroutine;
+    private bool isLightningPowerActive = false;
+    private bool hasCastLightning = false; // Flag to check if lightning has been cast
+
+    void Awake()
+    {
+        Debug.Log("SpellManager Awake called.");
+        Debug.Log("Initial lightningBoltPrefab assignment: " + (lightningBoltPrefab != null ? lightningBoltPrefab.name : "null"));
+    }
 
     void Start()
     {
@@ -42,6 +51,15 @@ public class SpellManager : MonoBehaviour
         {
             Debug.LogError("Barrier prefab not assigned.");
         }
+
+        if (lightningBoltPrefab == null)
+        {
+            Debug.LogError("Lightning bolt prefab not assigned in Start.");
+        }
+        else
+        {
+            Debug.Log("Lightning bolt prefab assigned successfully in Start.");
+        }
     }
 
     public void CastSpell(string spellId)
@@ -62,6 +80,9 @@ public class SpellManager : MonoBehaviour
                 break;
             case "restart":
                 RestartLevel();
+                break;
+            case "thurisaz":
+                ActivateLightningPower();
                 break;
         }
     }
@@ -155,6 +176,14 @@ public class SpellManager : MonoBehaviour
 
     void Update()
     {
+        if (isLightningPowerActive && Input.GetMouseButtonDown(0))
+        {
+            Vector2 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            SpawnLightningBolt(worldPosition);
+            isLightningPowerActive = false; // Deactivate lightning power after casting
+            hasCastLightning = true; // Mark that the lightning has been cast
+        }
+
         if (Input.GetKeyDown(KeyCode.B))
         {
             CastSpell("uruz");
@@ -162,6 +191,27 @@ public class SpellManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T))
         {
             CastSpell("kenaz");
+        }
+    }
+
+    private void ActivateLightningPower()
+    {
+        isLightningPowerActive = true;
+        hasCastLightning = false; // Reset the flag when lightning power is activated
+        Debug.Log("Lightning power activated! Click to strike lightning.");
+    }
+
+    private void SpawnLightningBolt(Vector2 position)
+    {
+        Debug.Log("Attempting to spawn lightning bolt at position: " + position);
+        if (lightningBoltPrefab != null)
+        {
+            Instantiate(lightningBoltPrefab, position, Quaternion.identity);
+            Debug.Log("Lightning bolt instantiated at position: " + position);
+        }
+        else
+        {
+            Debug.LogError("Lightning bolt prefab not assigned in SpawnLightningBolt.");
         }
     }
 }
