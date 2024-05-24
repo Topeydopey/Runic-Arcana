@@ -16,6 +16,7 @@ public class SlimeEnemy : MonoBehaviour
     private Animator animator;
     private bool facingRight = true; // Assuming the initial facing direction is right
     private bool isDying = false; // Flag to check if the slime is dying
+    private Rigidbody2D rb;
 
     private float damageCooldown = 1.0f; // Cooldown period between damage applications
     private float lastDamageTime; // Timestamp of the last damage application
@@ -24,6 +25,8 @@ public class SlimeEnemy : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>(); // Get the Rigidbody2D component
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous; // Set collision detection mode to continuous
         currentHealth = maxHealth;
         InvokeRepeating("ChangeDirection", 0, moveInterval);
         lastDamageTime = -damageCooldown; // Initialize to ensure immediate damage on first contact
@@ -88,7 +91,7 @@ public class SlimeEnemy : MonoBehaviour
 
     void MoveRandomly()
     {
-        transform.Translate(randomDirection * moveSpeed * Time.deltaTime);
+        rb.MovePosition(rb.position + randomDirection * moveSpeed * Time.fixedDeltaTime);
     }
 
     IEnumerator LeapAtPlayer()
@@ -98,7 +101,6 @@ public class SlimeEnemy : MonoBehaviour
 
         // Stop for a moment before leaping
         yield return new WaitForSeconds(0.5f);
-
         Vector3 leapDirection = (player.position - transform.position).normalized;
         FlipSprite(leapDirection.x);
 
@@ -107,7 +109,7 @@ public class SlimeEnemy : MonoBehaviour
 
         while (elapsedTime < leapDuration)
         {
-            transform.Translate(leapDirection * leapSpeed * Time.deltaTime);
+            rb.MovePosition(rb.position + (Vector2)leapDirection * leapSpeed * Time.fixedDeltaTime);
             elapsedTime += Time.deltaTime;
             yield return null;
         }

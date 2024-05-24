@@ -54,6 +54,7 @@ public class EnemyChaseTeleport : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous; // Set collision detection mode to continuous
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
         currentSpeed = speed;

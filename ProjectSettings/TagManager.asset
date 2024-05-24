@@ -11,6 +11,7 @@ TagManager:
   - Hint
   - Obstacle
   - PickupObject
+  - Lighting
   layers:
   - Default
   - TransparentFX
