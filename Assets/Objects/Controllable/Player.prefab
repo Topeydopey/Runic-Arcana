@@ -1797,7 +1797,7 @@ MonoBehaviour:
   maxMana: 100
   fireballManaCost: 20
   lightningManaCost: 50
-  waterWaveManaCost: 15
+  waterWaveManaCost: 50
   manaRegenRate: 10
 --- !u!114 &792732537220834072
 MonoBehaviour:
