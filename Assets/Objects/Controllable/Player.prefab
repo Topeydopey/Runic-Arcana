@@ -1791,11 +1791,13 @@ MonoBehaviour:
   cursorRotationAim: {fileID: 2481263470150020247}
   barrierPrefab: {fileID: 3633697147699920977, guid: 2eeed1154fafcb54b917e00843d5c7a6, type: 3}
   lightningBoltPrefab: {fileID: 2620844365462508359, guid: 23a1f824b15c6b149a9b4b60c7aef3b9, type: 3}
+  waterWavePrefab: {fileID: 8394770240785614232, guid: 30a07548a073484479591b437fe80512, type: 3}
   playerTransform: {fileID: 2537352360589857528}
   manaLight: {fileID: 7077893418372482954}
   maxMana: 100
   fireballManaCost: 20
   lightningManaCost: 50
+  waterWaveManaCost: 15
   manaRegenRate: 10
 --- !u!114 &792732537220834072
 MonoBehaviour:
