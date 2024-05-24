@@ -1790,7 +1790,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursorRotationAim: {fileID: 2481263470150020247}
   barrierPrefab: {fileID: 3633697147699920977, guid: 2eeed1154fafcb54b917e00843d5c7a6, type: 3}
+  lightningBoltPrefab: {fileID: 2620844365462508359, guid: 23a1f824b15c6b149a9b4b60c7aef3b9, type: 3}
+  waterWavePrefab: {fileID: 8394770240785614232, guid: 30a07548a073484479591b437fe80512, type: 3}
   playerTransform: {fileID: 2537352360589857528}
+  manaLight: {fileID: 7077893418372482954}
+  maxMana: 100
+  fireballManaCost: 20
+  lightningManaCost: 50
+  waterWaveManaCost: 50
+  manaRegenRate: 10
 --- !u!114 &792732537220834072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1960,7 +1968,7 @@ GameObject:
   - component: {fileID: 730232628068396033}
   - component: {fileID: 7077893418372482954}
   m_Layer: 6
-  m_Name: Light 2D
+  m_Name: Mana Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1974,8 +1982,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2140926219102005405}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.15, y: 0.02, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.07837628, w: 0.99692386}
+  m_LocalPosition: {x: 0.063, y: 0.383, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1994,11 +2002,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ComponentVersion: 1
-  m_LightType: 3
+  m_LightType: 1
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.8
+  m_Intensity: 0.24
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 0000000081d39bbf9f379b08
@@ -2015,22 +2023,23 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0, y: -0.00000011920929, z: 0}
-    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+    m_Center: {x: 0.092099965, y: -0.529, z: 0}
+    m_Extent: {x: 1.9426, y: 2.0877, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 1
+  m_PointLightOuterRadius: 0.36740813
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffSize: 1.5
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
-  - {x: -0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: 0.5, z: 0}
-  - {x: -0.5, y: 0.5, z: 0}
+  - {x: -0.35073254, y: -0.6532849, z: 0}
+  - {x: 0.12276879, y: -1.1177492, z: 0}
+  - {x: 0.5368064, y: -0.51853573, z: 0}
+  - {x: 0.3706717, y: 0.059945103, z: 0}
+  - {x: -0.2759592, y: -0.019589113, z: 0}
 --- !u!1 &2286181891448745130
 GameObject:
   m_ObjectHideFlags: 0
