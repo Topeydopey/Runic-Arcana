@@ -13,8 +13,6 @@ TagManager:
   - PickupObject
   - Lighting
   - StartButton
-  - Undefined
-  - Barrier
   layers:
   - Default
   - TransparentFX

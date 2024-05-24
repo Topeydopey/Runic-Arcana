@@ -9,7 +9,6 @@ public class Fireball : MonoBehaviour
     public int damage = 1;
     public Animator animator;
     public AnimationClip explosionAnimationClip;
-
     public void Initialize(Vector2 direction)
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
@@ -25,21 +24,16 @@ public class Fireball : MonoBehaviour
         Destroy(gameObject, lifetime); // Destroys this game object after 'lifetime' seconds
     }
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {
             // Damage the enemy
-            SlimeEnemy slimeEnemy = collision.GetComponent<SlimeEnemy>();
-            FireSlimeEnemy fireSlimeEnemy = collision.GetComponent<FireSlimeEnemy>();
-
-            if (slimeEnemy != null)
+            SlimeEnemy enemy = collision.GetComponent<SlimeEnemy>();
+            if (enemy != null)
             {
-                slimeEnemy.TakeDamage(damage);
-            }
-            else if (fireSlimeEnemy != null)
-            {
-                fireSlimeEnemy.TakeDamage(damage);
+                enemy.TakeDamage(damage);
             }
         }
 
