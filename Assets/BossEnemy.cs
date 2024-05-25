@@ -7,7 +7,7 @@ using TMPro; // Import TMPro namespace
 public class BossEnemy : MonoBehaviour
 {
     public GameObject fireballPrefab; // Reference to the fireball projectile prefab
-    public GameObject slimePrefab; // Reference to the slime enemy prefab
+    public GameObject[] slimePrefabs; // Array of slime enemy prefabs
     public Transform[] fireballSpawnPoints; // Array of points to spawn fireballs from
     public float fireballCooldown = 1f; // Cooldown between fireball attacks
     public float summonCooldown = 10f; // Cooldown between summoning minions
@@ -20,6 +20,7 @@ public class BossEnemy : MonoBehaviour
     public CanvasGroup fadeCanvasGroup; // Canvas group for fading effect
     public string endCreditSceneName = "EndCredits"; // Name of the end credit scene
     public float fadeDuration = 2f; // Duration of the fade effect
+    public GameObject activationTrigger; // Reference to the activation trigger
 
     private int currentHealth;
     private Transform player;
@@ -28,6 +29,7 @@ public class BossEnemy : MonoBehaviour
     private bool isDying = false;
     private AudioSource audioSource;
     private int minionsDefeated = 0;
+    private bool isActive = false; // Tracks if the boss is active
 
     void Start()
     {
@@ -35,7 +37,9 @@ public class BossEnemy : MonoBehaviour
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         currentHealth = maxHealth;
-        StartCoroutine(AttackCycle());
+
+        // Ensure the boss is not active initially
+        gameObject.SetActive(false);
 
         // Initialize the boss health text
         if (bossHealthText != null)
@@ -52,7 +56,7 @@ public class BossEnemy : MonoBehaviour
 
     void Update()
     {
-        if (isDying) return;
+        if (isDying || !isActive) return;
 
         // Check if all minions are defeated to trigger bullet hell mode
         if (minionsDefeated >= minionsToDefeat)
@@ -60,6 +64,21 @@ public class BossEnemy : MonoBehaviour
             StopAllCoroutines();
             StartCoroutine(BulletHell());
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player") && !isActive)
+        {
+            ActivateBoss();
+        }
+    }
+
+    private void ActivateBoss()
+    {
+        isActive = true;
+        gameObject.SetActive(true); // Activate the boss object
+        StartCoroutine(AttackCycle());
     }
 
     private IEnumerator AttackCycle()
@@ -112,7 +131,8 @@ public class BossEnemy : MonoBehaviour
         for (int i = 0; i < minionsToDefeat; i++)
         {
             Vector2 randomPosition = (Vector2)transform.position + Random.insideUnitCircle * 3f;
-            Instantiate(slimePrefab, randomPosition, Quaternion.identity);
+            int slimeIndex = Random.Range(0, slimePrefabs.Length);
+            Instantiate(slimePrefabs[slimeIndex], randomPosition, Quaternion.identity);
         }
 
         yield return new WaitForSeconds(0.5f); // Delay to sync with casting animation
