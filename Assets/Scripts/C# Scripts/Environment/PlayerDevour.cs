@@ -12,6 +12,7 @@ public class PlayerInteraction : MonoBehaviour
     public FadeController fadeController; // Reference to the FadeController script
     public AudioClip devourSound; // Audio clip for the devour sound
     private AudioSource audioSource; // Audio source component
+    public string nextSceneName = "NextLevel"; // Name of the next scene to load
 
     private void Start()
     {
@@ -51,7 +52,7 @@ public class PlayerInteraction : MonoBehaviour
         player.SetActive(false);
 
         // Start the fade to black
-        fadeController.FadeToScene("NextLevel");
+        fadeController.FadeToScene(nextSceneName);
 
         // Wait for the fade duration
         yield return new WaitForSeconds(fadeController.fadeDuration);
@@ -59,8 +60,7 @@ public class PlayerInteraction : MonoBehaviour
         // Wait for the length of the audio clip or an additional 8 seconds, whichever is longer
         yield return new WaitForSeconds(Mathf.Max(8f, devourSound.length));
 
-        // Load the next scene
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex + 1);
+        // Load the specified scene
+        SceneManager.LoadScene(nextSceneName);
     }
 }

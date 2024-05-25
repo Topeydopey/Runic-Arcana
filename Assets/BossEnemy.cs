@@ -1,5 +1,8 @@
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement; // Import SceneManagement namespace
 using System.Collections;
+using TMPro; // Import TMPro namespace
 
 public class BossEnemy : MonoBehaviour
 {
@@ -11,8 +14,12 @@ public class BossEnemy : MonoBehaviour
     public int maxHealth = 30; // Boss health
     public int minionsToDefeat = 5; // Number of minions the player needs to defeat
     public AudioClip castingSound; // Sound for casting spells
-    public AudioClip hitSound; // Sound for when the boss is hit
+    public AudioClip[] hitSounds; // Array of sounds for when the boss is hit
     public AudioClip deathSound; // Sound for dying
+    public TextMeshProUGUI bossHealthText; // Text to display boss health
+    public CanvasGroup fadeCanvasGroup; // Canvas group for fading effect
+    public string endCreditSceneName = "EndCredits"; // Name of the end credit scene
+    public float fadeDuration = 2f; // Duration of the fade effect
 
     private int currentHealth;
     private Transform player;
@@ -29,6 +36,18 @@ public class BossEnemy : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         currentHealth = maxHealth;
         StartCoroutine(AttackCycle());
+
+        // Initialize the boss health text
+        if (bossHealthText != null)
+        {
+            bossHealthText.text = "Demon Sorcerer Health: " + currentHealth;
+        }
+
+        // Ensure the fade canvas group is hidden initially
+        if (fadeCanvasGroup != null)
+        {
+            fadeCanvasGroup.alpha = 0;
+        }
     }
 
     void Update()
@@ -126,12 +145,26 @@ public class BossEnemy : MonoBehaviour
         }
     }
 
+    private void PlayHitSound()
+    {
+        if (hitSounds.Length > 0)
+        {
+            AudioClip clip = hitSounds[Random.Range(0, hitSounds.Length)];
+            PlaySound(clip);
+        }
+    }
+
     public void TakeDamage(int damage)
     {
         if (isDying) return;
 
         currentHealth -= damage;
-        PlaySound(hitSound); // Play hit sound
+        PlayHitSound(); // Play a hit sound
+
+        if (bossHealthText != null)
+        {
+            bossHealthText.text = "Demon Sorcerer Health: " + currentHealth; // Update boss health text
+        }
 
         if (currentHealth <= 0)
         {
@@ -146,9 +179,23 @@ public class BossEnemy : MonoBehaviour
 
         yield return new WaitForSeconds(1f); // Delay for dying animation
 
-        // Add any additional logic for when the boss dies
+        // Fade to white and transition to end credit scene
+        StartCoroutine(FadeToWhiteAndEndCredits());
+    }
 
-        Destroy(gameObject);
+    private IEnumerator FadeToWhiteAndEndCredits()
+    {
+        float elapsedTime = 0f;
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            fadeCanvasGroup.alpha = Mathf.Clamp01(elapsedTime / fadeDuration);
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(3f); // Wait for 3 seconds before transitioning to end credits
+
+        SceneManager.LoadScene(endCreditSceneName); // Load end credit scene
     }
 
     public void MinionDefeated()
