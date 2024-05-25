@@ -11,6 +11,7 @@ public class BedInteraction : MonoBehaviour
 
     private CanvasGroup canvasGroup;
     public FadeController fadeController; // Reference to the FadeController script
+    public string nextSceneName = "NextLevel"; // Name of the next scene to load
 
     private void Start()
     {
@@ -45,8 +46,7 @@ public class BedInteraction : MonoBehaviour
 
         // Get the last completed level index
         int lastLevelCompleted = PlayerPrefs.GetInt("LastLevelCompleted", 0);
-        // Load the next level by incrementing the index
-        SceneManager.LoadScene(lastLevelCompleted + 1);
+        SceneManager.LoadScene(nextSceneName);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
