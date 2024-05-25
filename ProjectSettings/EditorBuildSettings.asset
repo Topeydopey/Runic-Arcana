@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: d22e54d87b6f498468d21b4a0aab8aae
   - enabled: 1
+    path: Assets/Scenes/Intro Scene.unity
+    guid: 595a8485fd37bf64d97c3a4309900460
+  - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: a3a6077cf8300064ab505ffb3e136251
   - enabled: 1
@@ -23,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Boss.unity
     guid: 80812d34057e4e54db6d4897c904291d
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: b3f0613e93b4b5e46bdd237de2ea704a
   - enabled: 1
     path: Assets/Scenes/House.unity
     guid: 3aac9106be9f70a4faff1daba01b19c8

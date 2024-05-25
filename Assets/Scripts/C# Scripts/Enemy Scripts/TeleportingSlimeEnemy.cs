@@ -7,29 +7,30 @@ public class TeleportingSlimeEnemy : MonoBehaviour
     public float chargeSpeed = 2.0f;
     public float teleportRange = 7.0f;
     public float moveSpeed = 1.0f;
-    public int maxHealth = 2;  // Maximum health
-    public GameObject teleportParticlePrefab; // Reference to the particle system prefab
+    public int maxHealth = 2;
+    public GameObject teleportParticlePrefab;
     private int currentHealth;
     private Transform player;
     private Vector2 randomDirection;
-    private float moveInterval = 2.0f; // Interval in seconds between direction changes
+    private float moveInterval = 2.0f;
     private bool isCharging = false;
     private Animator animator;
-    private bool facingRight = true; // Assuming the initial facing direction is right
-    public AudioClip damageSound; // Audio clip for damage sound
-    private AudioSource audioSource; // Audio source component
-
-    private float damageCooldown = 1.0f; // Cooldown period between damage applications
-    private float lastDamageTime; // Timestamp of the last damage application
+    private bool facingRight = true;
+    public AudioClip damageSound;
+    private AudioSource audioSource;
+    private Rigidbody2D rb;
+    private float damageCooldown = 1.0f;
+    private float lastDamageTime;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         InvokeRepeating("ChangeDirection", 0, moveInterval);
-        audioSource = GetComponent<AudioSource>(); // Get the AudioSource component
-        lastDamageTime = -damageCooldown; // Initialize to ensure immediate damage on first contact
+        audioSource = GetComponent<AudioSource>();
+        lastDamageTime = -damageCooldown;
     }
 
     private void Update()
@@ -61,7 +62,7 @@ public class TeleportingSlimeEnemy : MonoBehaviour
         {
             Debug.Log("Hit Fireball");
             TakeDamage(1);
-            Destroy(collision.gameObject); // Destroy the fireball upon collision
+            Destroy(collision.gameObject);
         }
     }
 
@@ -69,7 +70,6 @@ public class TeleportingSlimeEnemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            // Continuously damage the player if staying in collision with a cooldown
             ApplyDamage(collision.gameObject);
         }
     }
@@ -79,7 +79,7 @@ public class TeleportingSlimeEnemy : MonoBehaviour
         if (Time.time >= lastDamageTime + damageCooldown)
         {
             player.GetComponent<PlayerHealth>().TakeDamage(1);
-            lastDamageTime = Time.time; // Update the last damage time
+            lastDamageTime = Time.time;
             Debug.Log("Player damaged by teleporting slime");
         }
     }
@@ -93,7 +93,7 @@ public class TeleportingSlimeEnemy : MonoBehaviour
     private void MoveRandomly()
     {
         animator.SetBool("IsMoving", true);
-        transform.Translate(randomDirection * moveSpeed * Time.deltaTime);
+        rb.MovePosition(rb.position + randomDirection * moveSpeed * Time.fixedDeltaTime);
     }
 
     private IEnumerator TeleportAndCharge()
@@ -124,7 +124,7 @@ public class TeleportingSlimeEnemy : MonoBehaviour
 
         while (elapsedTime < chargeDuration)
         {
-            transform.Translate(chargeDirection * chargeSpeed * Time.deltaTime);
+            rb.MovePosition(rb.position + chargeDirection * chargeSpeed * Time.fixedDeltaTime);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
@@ -159,7 +159,7 @@ public class TeleportingSlimeEnemy : MonoBehaviour
         currentHealth -= damage;
         animator.SetTrigger("TakeDamage");
 
-        PlayDamageSound(); // Play damage sound
+        PlayDamageSound();
 
         if (currentHealth <= 0)
         {
@@ -178,11 +178,9 @@ public class TeleportingSlimeEnemy : MonoBehaviour
     private IEnumerator Die()
     {
         animator.SetTrigger("Die");
-        // Optionally, disable the slime enemy's ability to move or interact
         GetComponent<Collider2D>().enabled = false;
-        this.enabled = false; // Disable this script
+        this.enabled = false;
 
-        // Wait for the death animation to complete before destroying the game object
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
 
         Destroy(gameObject);

@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     private Animator animator;  // Reference to the Animator component
     private bool isDead = false;  // To track if the player is dead
     private Rigidbody2D rb;  // Reference to the Rigidbody2D component
+    public ScreenFader screenFader;  // Reference to the ScreenFader script
 
     void Start()
     {
@@ -54,6 +55,7 @@ public class PlayerHealth : MonoBehaviour
         GetComponent<PlayerMovement>().enabled = false;  // Assuming you have a PlayerMovement script
         // Optionally disable other components or add more death logic here
         rb.constraints = RigidbodyConstraints2D.FreezeAll;  // Freeze all movement and rotation
+        screenFader.FadeToBlackAndRestart();  // Call the fade out and restart method
     }
 
     private void PlayRandomDamageSound()

@@ -79,7 +79,6 @@ public class FireSlimeEnemy : MonoBehaviour
         {
             Debug.Log("Hit by Fireball"); // Debugging statement
             TakeDamage(1);
-            Destroy(collision.gameObject); // Destroy the fireball upon collision
         }
     }
 
@@ -96,13 +95,11 @@ public class FireSlimeEnemy : MonoBehaviour
         {
             Debug.Log("Hit Fireball");
             TakeDamage(1);
-            Destroy(other.gameObject); // Destroy the fireball upon collision
         }
         else if (other.CompareTag("Spell"))
         {
             Debug.Log("Hit by Spell"); // Debugging statement
             TakeDamage(1);
-            Destroy(other.gameObject); // Destroy the spell upon collision
         }
     }
 
