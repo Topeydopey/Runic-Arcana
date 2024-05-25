@@ -1,8 +1,9 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement; // Include this to manage scene transitions
 using System.Collections;
 
-public class EndIntroEventTrigger : MonoBehaviour
+public class EventTrigger : MonoBehaviour
 {
     public GameObject[] objectsToInstantiate; // Array of objects to instantiate
     public float radius = 5f; // Radius around the player to instantiate objects
@@ -10,6 +11,7 @@ public class EndIntroEventTrigger : MonoBehaviour
     public AudioClip eventSound; // Sound to play during the event
     public float fadeDuration = 1f; // Duration for fade to white
     public CanvasGroup fadeCanvasGroup; // Canvas group for the fade effect
+    public string nextLevelName; // Name of the next level to load
 
     private AudioSource audioSource; // Audio source component
     private bool hasBeenTriggered = false; // Flag to ensure the event only happens once
@@ -67,6 +69,12 @@ public class EndIntroEventTrigger : MonoBehaviour
 
         // Fade to white
         yield return StartCoroutine(FadeToWhite(fadeDuration));
+
+        // Wait for 3 seconds
+        yield return new WaitForSeconds(3f);
+
+        // Load the next level
+        SceneManager.LoadScene(nextLevelName);
     }
 
     private IEnumerator FadeToWhite(float duration)
