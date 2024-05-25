@@ -32,6 +32,7 @@ public class Fireball : MonoBehaviour
             // Damage the enemy
             SlimeEnemy slimeEnemy = collision.GetComponent<SlimeEnemy>();
             FireSlimeEnemy fireSlimeEnemy = collision.GetComponent<FireSlimeEnemy>();
+            TeleportingSlimeEnemy teleportingSlimeEnemy = collision.GetComponent<TeleportingSlimeEnemy>(); // Check for TeleportingSlimeEnemy
 
             if (slimeEnemy != null)
             {
@@ -40,6 +41,10 @@ public class Fireball : MonoBehaviour
             else if (fireSlimeEnemy != null)
             {
                 fireSlimeEnemy.TakeDamage(damage);
+            }
+            else if (teleportingSlimeEnemy != null) // Apply damage to TeleportingSlimeEnemy
+            {
+                teleportingSlimeEnemy.TakeDamage(damage);
             }
         }
 

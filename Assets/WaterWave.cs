@@ -23,10 +23,21 @@ public class WaterWave : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             // Damage the enemy
-            SlimeEnemy enemy = collision.GetComponent<SlimeEnemy>();
-            if (enemy != null)
+            SlimeEnemy slimeEnemy = collision.GetComponent<SlimeEnemy>();
+            FireSlimeEnemy fireSlimeEnemy = collision.GetComponent<FireSlimeEnemy>();
+            TeleportingSlimeEnemy teleportingSlimeEnemy = collision.GetComponent<TeleportingSlimeEnemy>(); // Check for TeleportingSlimeEnemy
+
+            if (slimeEnemy != null)
             {
-                enemy.TakeDamage(damage);
+                slimeEnemy.TakeDamage(damage);
+            }
+            else if (fireSlimeEnemy != null)
+            {
+                fireSlimeEnemy.TakeDamage(damage);
+            }
+            else if (teleportingSlimeEnemy != null) // Apply damage to TeleportingSlimeEnemy
+            {
+                teleportingSlimeEnemy.TakeDamage(damage);
             }
         }
     }

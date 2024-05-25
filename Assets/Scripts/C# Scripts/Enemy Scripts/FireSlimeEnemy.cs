@@ -81,12 +81,6 @@ public class FireSlimeEnemy : MonoBehaviour
             TakeDamage(1);
             Destroy(collision.gameObject); // Destroy the fireball upon collision
         }
-        else if (collision.gameObject.CompareTag("Spell"))
-        {
-            Debug.Log("Hit by Spell"); // Debugging statement
-            TakeDamage(1);
-            Destroy(collision.gameObject); // Destroy the spell upon collision
-        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
