@@ -11,7 +11,6 @@ public class SlimeProjectile : MonoBehaviour
     public AnimationClip explosionAnimationClip;
 
     private bool canExplode = false; // Flag to indicate if the projectile can explode
-    private float activationTime; // Time when the projectile was activated
     private Rigidbody2D rb;
     private Collider2D col;
 
@@ -22,7 +21,7 @@ public class SlimeProjectile : MonoBehaviour
 
         if (rb != null)
         {
-            rb.velocity = direction.normalized * speed;
+            rb.velocity = Vector2.zero; // Initially, don't move the projectile
             RotateSprite(direction); // Rotate the sprite to face the direction of movement
         }
         else
@@ -32,13 +31,16 @@ public class SlimeProjectile : MonoBehaviour
         animator.SetBool("isFlying", true); // Start the flying animation
         Destroy(gameObject, lifetime); // Destroys this game object after 'lifetime' seconds
 
-        activationTime = Time.time; // Record the activation time
-        StartCoroutine(EnableExplosionAfterDelay(0.1f)); // Enable explosion after a short delay
+        StartCoroutine(EnableExplosionAfterDelay(0.2f, direction)); // Enable explosion after a short delay and start moving the projectile
     }
 
-    private IEnumerator EnableExplosionAfterDelay(float delay)
+    private IEnumerator EnableExplosionAfterDelay(float delay, Vector2 direction)
     {
         yield return new WaitForSeconds(delay);
+        if (rb != null)
+        {
+            rb.velocity = direction.normalized * speed; // Start moving the projectile after the delay
+        }
         canExplode = true;
     }
 

@@ -10,6 +10,8 @@ public class ObjectCollector2D : MonoBehaviour
     public TextMeshProUGUI messageText;  // Reference to the TextMeshProUGUI component
     public CanvasGroup canvasGroup;  // Reference to the CanvasGroup component for fading
 
+    public AudioClip pickupSound; // Audio clip for pickup sound
+
     private int objectsCollected = 0;  // Counter for collected objects
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -17,6 +19,12 @@ public class ObjectCollector2D : MonoBehaviour
         // Check if the collided object has the specified tag
         if (other.CompareTag(objectTag))
         {
+            // Play the pickup sound
+            if (pickupSound != null)
+            {
+                PlaySound(pickupSound);
+            }
+
             // Activate the next target object if there are any left to activate
             if (objectsCollected < targetObjects.Length)
             {
@@ -30,6 +38,17 @@ public class ObjectCollector2D : MonoBehaviour
             // Optionally, you can destroy the picked-up object
             Destroy(other.gameObject);
         }
+    }
+
+    private void PlaySound(AudioClip clip)
+    {
+        GameObject tempGameObject = new GameObject("TempAudio");
+        AudioSource tempAudioSource = tempGameObject.AddComponent<AudioSource>();
+        tempAudioSource.clip = clip;
+        tempAudioSource.Play();
+
+        // Destroy the temporary game object after the clip has finished playing
+        Destroy(tempGameObject, clip.length);
     }
 
     private IEnumerator ShowMessage(string message, float duration)

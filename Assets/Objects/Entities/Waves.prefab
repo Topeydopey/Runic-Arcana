@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7964715469345480150}
   - component: {fileID: 1772707131821359401}
   - component: {fileID: 6407857870884112513}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Waves
   m_TagString: Fireball
   m_Icon: {fileID: 0}

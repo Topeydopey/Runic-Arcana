@@ -9,7 +9,19 @@ public class PlayerInteraction : MonoBehaviour
     public float interactionRange = 2f;
     public Transform chestTransform;
     public GameObject player; // Reference to the player GameObject
-    public string nextSceneName; // Name of the next scene to load
+    public FadeController fadeController; // Reference to the FadeController script
+    public AudioClip devourSound; // Audio clip for the devour sound
+    private AudioSource audioSource; // Audio source component
+
+    private void Start()
+    {
+        // Get the AudioSource component
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+    }
 
     private void Update()
     {
@@ -20,6 +32,12 @@ public class PlayerInteraction : MonoBehaviour
             {
                 // Trigger the devour animation
                 chestAnimator.SetTrigger(devourTriggerName);
+
+                // Play the devour sound
+                if (devourSound != null)
+                {
+                    audioSource.PlayOneShot(devourSound);
+                }
 
                 // Start the coroutine to disable the player and transition to the next level
                 StartCoroutine(DevourPlayerAndTransition());
@@ -32,10 +50,17 @@ public class PlayerInteraction : MonoBehaviour
         // Disable the player GameObject
         player.SetActive(false);
 
-        // Wait for 5 seconds
-        yield return new WaitForSeconds(15f);
+        // Start the fade to black
+        fadeController.FadeToScene("NextLevel");
+
+        // Wait for the fade duration
+        yield return new WaitForSeconds(fadeController.fadeDuration);
+
+        // Wait for the length of the audio clip or an additional 8 seconds, whichever is longer
+        yield return new WaitForSeconds(Mathf.Max(8f, devourSound.length));
 
         // Load the next scene
-        SceneManager.LoadScene(nextSceneName);
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex + 1);
     }
 }
