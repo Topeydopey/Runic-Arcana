@@ -24,6 +24,9 @@ public class FireSlimeEnemy : MonoBehaviour
     private float damageCooldown = 1.0f; // Cooldown period between damage applications
     private float lastDamageTime; // Timestamp of the last damage application
 
+    public AudioClip damageSound; // Audio clip for damage sound
+    private AudioSource audioSource; // Audio source component
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -34,6 +37,8 @@ public class FireSlimeEnemy : MonoBehaviour
         InvokeRepeating("ChangeDirection", 0, moveInterval);
         lastDamageTime = -damageCooldown; // Initialize to ensure immediate damage on first contact
         lastShootTime = -shootCooldown; // Initialize to allow immediate shooting
+
+        audioSource = GetComponent<AudioSource>(); // Get the AudioSource component
         Debug.Log("FireSlimeEnemy initialized with maxHealth: " + maxHealth);
     }
 
@@ -75,6 +80,35 @@ public class FireSlimeEnemy : MonoBehaviour
             Debug.Log("Hit by Fireball"); // Debugging statement
             TakeDamage(1);
             Destroy(collision.gameObject); // Destroy the fireball upon collision
+        }
+        else if (collision.gameObject.CompareTag("Spell"))
+        {
+            Debug.Log("Hit by Spell"); // Debugging statement
+            TakeDamage(1);
+            Destroy(collision.gameObject); // Destroy the spell upon collision
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Trigger detected with: " + other.gameObject.tag);
+
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Hit Player");
+            other.GetComponent<PlayerHealth>().TakeDamage(1);
+        }
+        else if (other.CompareTag("Fireball"))
+        {
+            Debug.Log("Hit Fireball");
+            TakeDamage(1);
+            Destroy(other.gameObject); // Destroy the fireball upon collision
+        }
+        else if (other.CompareTag("Spell"))
+        {
+            Debug.Log("Hit by Spell"); // Debugging statement
+            TakeDamage(1);
+            Destroy(other.gameObject); // Destroy the spell upon collision
         }
     }
 
@@ -161,9 +195,20 @@ public class FireSlimeEnemy : MonoBehaviour
         animator.SetTrigger("TakeDamage");
         Debug.Log("FireSlime took damage: " + damage + ", currentHealth: " + currentHealth); // Debugging statement
 
+        PlayDamageSound(); // Play damage sound
+
         if (currentHealth <= 0)
         {
+            Debug.Log("Current health is zero or less, starting death coroutine."); // Debugging statement
             StartCoroutine(Die());
+        }
+    }
+
+    void PlayDamageSound()
+    {
+        if (damageSound != null)
+        {
+            audioSource.PlayOneShot(damageSound);
         }
     }
 
@@ -181,6 +226,7 @@ public class FireSlimeEnemy : MonoBehaviour
         // Wait for 1 second before destroying the game object
         yield return new WaitForSeconds(1.0f);
 
+        Debug.Log("Destroying FireSlimeEnemy object.");
         Destroy(gameObject);
     }
 }

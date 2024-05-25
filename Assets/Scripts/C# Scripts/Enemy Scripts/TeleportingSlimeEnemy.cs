@@ -16,6 +16,8 @@ public class TeleportingSlimeEnemy : MonoBehaviour
     private bool isCharging = false;
     private Animator animator;
     private bool facingRight = true; // Assuming the initial facing direction is right
+    public AudioClip damageSound; // Audio clip for damage sound
+    private AudioSource audioSource; // Audio source component
 
     void Start()
     {
@@ -23,6 +25,7 @@ public class TeleportingSlimeEnemy : MonoBehaviour
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
         InvokeRepeating("ChangeDirection", 0, moveInterval);
+        audioSource = GetComponent<AudioSource>(); // Get the AudioSource component
     }
 
     void Update()
@@ -133,12 +136,21 @@ public class TeleportingSlimeEnemy : MonoBehaviour
         currentHealth -= damage;
         animator.SetTrigger("TakeDamage");
 
+        PlayDamageSound(); // Play damage sound
+
         if (currentHealth <= 0)
         {
             StartCoroutine(Die());
         }
     }
 
+    void PlayDamageSound()
+    {
+        if (damageSound != null)
+        {
+            audioSource.PlayOneShot(damageSound);
+        }
+    }
     IEnumerator Die()
     {
         animator.SetTrigger("Die");

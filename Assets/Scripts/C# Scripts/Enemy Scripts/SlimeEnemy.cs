@@ -21,6 +21,9 @@ public class SlimeEnemy : MonoBehaviour
     private float damageCooldown = 1.0f; // Cooldown period between damage applications
     private float lastDamageTime; // Timestamp of the last damage application
 
+    public AudioClip[] damageSounds; // Array of audio clips for damage sounds
+    private AudioSource audioSource; // Audio source component
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -30,6 +33,8 @@ public class SlimeEnemy : MonoBehaviour
         currentHealth = maxHealth;
         InvokeRepeating("ChangeDirection", 0, moveInterval);
         lastDamageTime = -damageCooldown; // Initialize to ensure immediate damage on first contact
+
+        audioSource = GetComponent<AudioSource>(); // Get the AudioSource component
     }
 
     void Update()
@@ -146,9 +151,20 @@ public class SlimeEnemy : MonoBehaviour
         currentHealth -= damage;
         animator.SetTrigger("TakeDamage");
 
+        PlayDamageSound(); // Play a damage sound
+
         if (currentHealth <= 0)
         {
             StartCoroutine(Die());
+        }
+    }
+
+    void PlayDamageSound()
+    {
+        if (damageSounds.Length > 0)
+        {
+            AudioClip clip = damageSounds[Random.Range(0, damageSounds.Length)];
+            audioSource.PlayOneShot(clip);
         }
     }
 
