@@ -1,7 +1,6 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI; // Add this line to use UI elements
 using System.Collections;
 
 public class BedInteraction : MonoBehaviour
@@ -11,6 +10,8 @@ public class BedInteraction : MonoBehaviour
     public float fadeDuration = 0.5f; // Duration for fade in/out
 
     private CanvasGroup canvasGroup;
+    public FadeController fadeController; // Reference to the FadeController script
+    public string nextSceneName = "NextLevel"; // Name of the next scene to load
 
     private void Start()
     {
@@ -31,16 +32,21 @@ public class BedInteraction : MonoBehaviour
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            LoadNextLevel();
+            StartCoroutine(FadeAndLoadNextLevel());
         }
     }
 
-    private void LoadNextLevel()
+    private IEnumerator FadeAndLoadNextLevel()
     {
+        // Start the fade to black
+        fadeController.FadeToScene("NextLevel");
+
+        // Wait for the fade duration before loading the next level
+        yield return new WaitForSeconds(fadeController.fadeDuration);
+
         // Get the last completed level index
         int lastLevelCompleted = PlayerPrefs.GetInt("LastLevelCompleted", 0);
-        // Load the next level by incrementing the index
-        SceneManager.LoadScene(lastLevelCompleted + 1);
+        SceneManager.LoadScene(nextSceneName);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

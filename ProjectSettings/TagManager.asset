@@ -13,6 +13,11 @@ TagManager:
   - PickupObject
   - Lighting
   - StartButton
+  - Undefined
+  - Barrier
+  - Grass
+  - Wood
+  - Stone
   layers:
   - Default
   - TransparentFX
@@ -23,7 +28,7 @@ TagManager:
   - Player
   - Pickup
   - Spell
-  - 
+  - Enemy
   - 
   - 
   - 

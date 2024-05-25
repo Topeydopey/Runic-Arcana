@@ -47,13 +47,29 @@ public class LightningBolt : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Enemy") || collision.CompareTag("Boss"))
         {
             // Damage the enemy
-            SlimeEnemy enemy = collision.GetComponent<SlimeEnemy>();
-            if (enemy != null)
+            SlimeEnemy slimeEnemy = collision.GetComponent<SlimeEnemy>();
+            FireSlimeEnemy fireSlimeEnemy = collision.GetComponent<FireSlimeEnemy>();
+            TeleportingSlimeEnemy teleportingSlimeEnemy = collision.GetComponent<TeleportingSlimeEnemy>(); // Check for TeleportingSlimeEnemy
+            BossEnemy bossEnemy = collision.GetComponent<BossEnemy>(); // Check for BossEnemy
+
+            if (slimeEnemy != null)
             {
-                enemy.TakeDamage(damage);
+                slimeEnemy.TakeDamage(damage);
+            }
+            else if (fireSlimeEnemy != null)
+            {
+                fireSlimeEnemy.TakeDamage(damage);
+            }
+            else if (teleportingSlimeEnemy != null) // Apply damage to TeleportingSlimeEnemy
+            {
+                teleportingSlimeEnemy.TakeDamage(damage);
+            }
+            else if (bossEnemy != null) // Apply damage to BossEnemy
+            {
+                bossEnemy.TakeDamage(damage);
             }
         }
     }

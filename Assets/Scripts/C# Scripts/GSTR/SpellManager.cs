@@ -8,14 +8,23 @@ public class SpellManager : MonoBehaviour
     public CursorRotationAim cursorRotationAim;
     public GameObject barrierPrefab;
     public GameObject lightningBoltPrefab;
-    public GameObject waterWavePrefab; // Reference to the water wave prefab
+    public GameObject waterWavePrefab;
     public Transform playerTransform;
     public Light2D manaLight;
     public float maxMana = 100f;
     public float fireballManaCost = 20f;
     public float lightningManaCost = 30f;
-    public float waterWaveManaCost = 15f; // Mana cost for casting water wave
+    public float waterWaveManaCost = 15f;
     public float manaRegenRate = 10f;
+
+    public AudioClip spellSelectSound;
+    public AudioClip fireballCastSound;
+    public AudioClip lightningCastSound;
+    public AudioClip waterWaveCastSound;
+    public AudioClip barrierActivateSound;
+    public AudioClip barrierDeactivateSound;
+    public AudioClip lowManaSound;
+    private AudioSource audioSource;
 
     private GameObject barrierInstance;
     private Animator playerAnimator;
@@ -23,12 +32,10 @@ public class SpellManager : MonoBehaviour
     private string queuedSpellId;
     private Animator barrierAnimator;
     private Coroutine castingCoroutine;
-    private bool isLightningPowerActive = false;
-    private bool hasCastLightning = false;
     private float currentMana;
     private bool fireballSelected = false;
     private bool lightningSelected = false;
-    private bool waterWaveSelected = false; // Flag for water wave selection
+    private bool waterWaveSelected = false;
 
     private Color lowManaColor = Color.red;
     private Color highManaColor = Color.blue;
@@ -91,8 +98,10 @@ public class SpellManager : MonoBehaviour
             Debug.LogError("Mana Light is not assigned.");
         }
 
-        currentMana = maxMana; // Initialize mana to max value
-        UpdateManaIndicator(); // Initialize the mana indicator
+        audioSource = gameObject.AddComponent<AudioSource>();
+
+        currentMana = maxMana;
+        UpdateManaIndicator();
     }
 
     void Update()
@@ -107,18 +116,39 @@ public class SpellManager : MonoBehaviour
 
         if (fireballSelected && Input.GetMouseButtonDown(0))
         {
-            StartCoroutine(CastFireballRoutine());
+            if (currentMana >= fireballManaCost)
+            {
+                StartCoroutine(CastFireballRoutine());
+            }
+            else
+            {
+                PlaySound(lowManaSound);
+            }
         }
 
         if (lightningSelected && Input.GetMouseButtonDown(0))
         {
-            Vector2 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            SpawnLightningBolt(worldPosition);
+            if (currentMana >= lightningManaCost)
+            {
+                Vector2 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                SpawnLightningBolt(worldPosition);
+            }
+            else
+            {
+                PlaySound(lowManaSound);
+            }
         }
 
         if (waterWaveSelected && Input.GetMouseButtonDown(0))
         {
-            StartCoroutine(CastWaterWaveRoutine());
+            if (currentMana >= waterWaveManaCost)
+            {
+                StartCoroutine(CastWaterWaveRoutine());
+            }
+            else
+            {
+                PlaySound(lowManaSound);
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.B))
@@ -133,9 +163,9 @@ public class SpellManager : MonoBehaviour
         {
             CastSpell("thurisaz");
         }
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.G)) // Changed from W to G for laguz
         {
-            CastSpell("laguz"); // New spell ID for water wave
+            CastSpell("laguz");
         }
     }
 
@@ -147,12 +177,18 @@ public class SpellManager : MonoBehaviour
             return;
         }
 
+        // Play spell selection sound
+        PlaySound(spellSelectSound);
+
+        // Reset spell selections
+        fireballSelected = false;
+        lightningSelected = false;
+        waterWaveSelected = false;
+
         switch (spellId)
         {
             case "kenaz":
                 fireballSelected = true;
-                lightningSelected = false;
-                waterWaveSelected = false;
                 break;
             case "uruz":
                 ToggleBarrier();
@@ -162,13 +198,9 @@ public class SpellManager : MonoBehaviour
                 break;
             case "thurisaz":
                 ActivateLightningPower();
-                fireballSelected = false;
-                waterWaveSelected = false;
                 break;
             case "laguz":
                 waterWaveSelected = true;
-                fireballSelected = false;
-                lightningSelected = false;
                 break;
         }
     }
@@ -207,6 +239,9 @@ public class SpellManager : MonoBehaviour
 
         currentMana -= fireballManaCost;
         UpdateManaIndicator();
+
+        // Play fireball cast sound
+        PlaySound(fireballCastSound);
 
         if (cursorRotationAim.fireballPrefab != null)
         {
@@ -259,11 +294,14 @@ public class SpellManager : MonoBehaviour
         currentMana -= waterWaveManaCost;
         UpdateManaIndicator();
 
+        // Play water wave cast sound
+        PlaySound(waterWaveCastSound);
+
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = (mousePosition.x < playerTransform.position.x) ? Vector2.left : Vector2.right;
 
         GameObject waterWave = Instantiate(waterWavePrefab, cursorRotationAim.projectileSpawnPoint.transform.position, Quaternion.identity);
-        waterWave.GetComponent<WaterWave>().Initialize(direction); // Initialize with direction
+        waterWave.GetComponent<WaterWave>().Initialize(direction);
 
         // Flip the sprite if casting to the left
         if (direction == Vector2.left)
@@ -276,7 +314,6 @@ public class SpellManager : MonoBehaviour
         }
     }
 
-
     private void ToggleBarrier()
     {
         if (barrierInstance != null)
@@ -286,11 +323,19 @@ public class SpellManager : MonoBehaviour
                 barrierInstance.transform.position = playerTransform.position;
                 barrierInstance.SetActive(true);
                 barrierAnimator.SetTrigger("BarrierUp");
+
+                // Play barrier activate sound
+                PlaySound(barrierActivateSound);
+
                 Invoke("DeactivateBarrier", 5.0f);
             }
             else
             {
                 barrierAnimator.SetTrigger("BarrierDown");
+
+                // Play barrier deactivate sound
+                PlaySound(barrierDeactivateSound);
+
                 Invoke("DisableBarrier", 1.0f);
             }
         }
@@ -305,6 +350,10 @@ public class SpellManager : MonoBehaviour
         if (barrierInstance != null)
         {
             barrierAnimator.SetTrigger("BarrierDown");
+
+            // Play barrier deactivate sound
+            PlaySound(barrierDeactivateSound);
+
             Invoke("DisableBarrier", 1.0f);
         }
     }
@@ -343,6 +392,10 @@ public class SpellManager : MonoBehaviour
         if (lightningBoltPrefab != null)
         {
             Instantiate(lightningBoltPrefab, position, Quaternion.identity);
+
+            // Play lightning cast sound
+            PlaySound(lightningCastSound);
+
             Debug.Log("Lightning bolt instantiated at position: " + position);
         }
         else
@@ -365,7 +418,7 @@ public class SpellManager : MonoBehaviour
     {
         if (manaLight != null)
         {
-            manaLight.intensity = Mathf.Lerp(1, 3, currentMana / maxMana); // Adjusted to minimum intensity of 1
+            manaLight.intensity = Mathf.Lerp(2, 3, currentMana / maxMana); // Set minimum intensity to 2
             manaLight.color = Color.Lerp(lowManaColor, highManaColor, currentMana / maxMana);
         }
     }
@@ -375,5 +428,13 @@ public class SpellManager : MonoBehaviour
     {
         currentMana = Mathf.Clamp(currentMana + amount, 0, maxMana);
         UpdateManaIndicator();
+    }
+
+    private void PlaySound(AudioClip clip)
+    {
+        if (clip != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
     }
 }

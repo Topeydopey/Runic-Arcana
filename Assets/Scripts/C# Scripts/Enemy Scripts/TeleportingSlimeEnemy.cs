@@ -7,25 +7,33 @@ public class TeleportingSlimeEnemy : MonoBehaviour
     public float chargeSpeed = 2.0f;
     public float teleportRange = 7.0f;
     public float moveSpeed = 1.0f;
-    public int maxHealth = 2;  // Maximum health
-    public GameObject teleportParticlePrefab; // Reference to the particle system prefab
+    public int maxHealth = 2;
+    public GameObject teleportParticlePrefab;
     private int currentHealth;
     private Transform player;
     private Vector2 randomDirection;
-    private float moveInterval = 2.0f; // Interval in seconds between direction changes
+    private float moveInterval = 2.0f;
     private bool isCharging = false;
     private Animator animator;
-    private bool facingRight = true; // Assuming the initial facing direction is right
+    private bool facingRight = true;
+    public AudioClip damageSound;
+    private AudioSource audioSource;
+    private Rigidbody2D rb;
+    private float damageCooldown = 1.0f;
+    private float lastDamageTime;
 
-    void Start()
+    private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         InvokeRepeating("ChangeDirection", 0, moveInterval);
+        audioSource = GetComponent<AudioSource>();
+        lastDamageTime = -damageCooldown;
     }
 
-    void Update()
+    private void Update()
     {
         if (!isCharging)
         {
@@ -42,35 +50,53 @@ public class TeleportingSlimeEnemy : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Trigger detected with: " + other.gameObject.tag);
+        Debug.Log("Collision detected with: " + collision.gameObject.name);
 
-        if (other.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Hit Player");
-            other.GetComponent<PlayerHealth>().TakeDamage(1);
+            ApplyDamage(collision.gameObject);
         }
-        else if (other.CompareTag("Fireball"))
+        else if (collision.gameObject.CompareTag("Fireball"))
         {
             Debug.Log("Hit Fireball");
             TakeDamage(1);
+            Destroy(collision.gameObject);
         }
     }
 
-    void ChangeDirection()
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            ApplyDamage(collision.gameObject);
+        }
+    }
+
+    private void ApplyDamage(GameObject player)
+    {
+        if (Time.time >= lastDamageTime + damageCooldown)
+        {
+            player.GetComponent<PlayerHealth>().TakeDamage(1);
+            lastDamageTime = Time.time;
+            Debug.Log("Player damaged by teleporting slime");
+        }
+    }
+
+    private void ChangeDirection()
     {
         randomDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
         FlipSprite(randomDirection.x);
     }
 
-    void MoveRandomly()
+    private void MoveRandomly()
     {
         animator.SetBool("IsMoving", true);
-        transform.Translate(randomDirection * moveSpeed * Time.deltaTime);
+        rb.MovePosition(rb.position + randomDirection * moveSpeed * Time.fixedDeltaTime);
     }
 
-    IEnumerator TeleportAndCharge()
+    private IEnumerator TeleportAndCharge()
     {
         isCharging = true;
         animator.SetBool("IsCharging", true);
@@ -98,7 +124,7 @@ public class TeleportingSlimeEnemy : MonoBehaviour
 
         while (elapsedTime < chargeDuration)
         {
-            transform.Translate(chargeDirection * chargeSpeed * Time.deltaTime);
+            rb.MovePosition(rb.position + chargeDirection * chargeSpeed * Time.fixedDeltaTime);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
@@ -110,7 +136,7 @@ public class TeleportingSlimeEnemy : MonoBehaviour
         isCharging = false;
     }
 
-    void FlipSprite(float direction)
+    private void FlipSprite(float direction)
     {
         if (direction > 0 && !facingRight)
         {
@@ -133,20 +159,28 @@ public class TeleportingSlimeEnemy : MonoBehaviour
         currentHealth -= damage;
         animator.SetTrigger("TakeDamage");
 
+        PlayDamageSound();
+
         if (currentHealth <= 0)
         {
             StartCoroutine(Die());
         }
     }
 
-    IEnumerator Die()
+    private void PlayDamageSound()
+    {
+        if (damageSound != null)
+        {
+            audioSource.PlayOneShot(damageSound);
+        }
+    }
+
+    private IEnumerator Die()
     {
         animator.SetTrigger("Die");
-        // Optionally, disable the slime enemy's ability to move or interact
         GetComponent<Collider2D>().enabled = false;
-        this.enabled = false; // Disable this script
+        this.enabled = false;
 
-        // Wait for the death animation to complete before destroying the game object
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
 
         Destroy(gameObject);

@@ -33,7 +33,9 @@ public class ExampleGestureHandler : MonoBehaviour
 
 		if (result != RecognitionResult.Empty)
 		{
-			textResult.text = result.gesture.id + "\n" + Mathf.RoundToInt(result.score.score * 100) + "%";
+			// Removed the percentage display
+			// textResult.text = result.gesture.id + "\n" + Mathf.RoundToInt(result.score.score * 100) + "%";
+			textResult.text = result.gesture.id;
 			blinkCoroutine = StartCoroutine(Blink(result.gesture.id));
 		}
 		else
