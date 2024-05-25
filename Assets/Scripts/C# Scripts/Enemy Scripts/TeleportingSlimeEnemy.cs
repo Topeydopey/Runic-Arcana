@@ -19,16 +19,20 @@ public class TeleportingSlimeEnemy : MonoBehaviour
     public AudioClip damageSound; // Audio clip for damage sound
     private AudioSource audioSource; // Audio source component
 
-    void Start()
+    private float damageCooldown = 1.0f; // Cooldown period between damage applications
+    private float lastDamageTime; // Timestamp of the last damage application
+
+    private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
         InvokeRepeating("ChangeDirection", 0, moveInterval);
         audioSource = GetComponent<AudioSource>(); // Get the AudioSource component
+        lastDamageTime = -damageCooldown; // Initialize to ensure immediate damage on first contact
     }
 
-    void Update()
+    private void Update()
     {
         if (!isCharging)
         {
@@ -45,35 +49,54 @@ public class TeleportingSlimeEnemy : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Trigger detected with: " + other.gameObject.tag);
+        Debug.Log("Collision detected with: " + collision.gameObject.name);
 
-        if (other.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Hit Player");
-            other.GetComponent<PlayerHealth>().TakeDamage(1);
+            ApplyDamage(collision.gameObject);
         }
-        else if (other.CompareTag("Fireball"))
+        else if (collision.gameObject.CompareTag("Fireball"))
         {
             Debug.Log("Hit Fireball");
             TakeDamage(1);
+            Destroy(collision.gameObject); // Destroy the fireball upon collision
         }
     }
 
-    void ChangeDirection()
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // Continuously damage the player if staying in collision with a cooldown
+            ApplyDamage(collision.gameObject);
+        }
+    }
+
+    private void ApplyDamage(GameObject player)
+    {
+        if (Time.time >= lastDamageTime + damageCooldown)
+        {
+            player.GetComponent<PlayerHealth>().TakeDamage(1);
+            lastDamageTime = Time.time; // Update the last damage time
+            Debug.Log("Player damaged by teleporting slime");
+        }
+    }
+
+    private void ChangeDirection()
     {
         randomDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
         FlipSprite(randomDirection.x);
     }
 
-    void MoveRandomly()
+    private void MoveRandomly()
     {
         animator.SetBool("IsMoving", true);
         transform.Translate(randomDirection * moveSpeed * Time.deltaTime);
     }
 
-    IEnumerator TeleportAndCharge()
+    private IEnumerator TeleportAndCharge()
     {
         isCharging = true;
         animator.SetBool("IsCharging", true);
@@ -113,7 +136,7 @@ public class TeleportingSlimeEnemy : MonoBehaviour
         isCharging = false;
     }
 
-    void FlipSprite(float direction)
+    private void FlipSprite(float direction)
     {
         if (direction > 0 && !facingRight)
         {
@@ -144,14 +167,15 @@ public class TeleportingSlimeEnemy : MonoBehaviour
         }
     }
 
-    void PlayDamageSound()
+    private void PlayDamageSound()
     {
         if (damageSound != null)
         {
             audioSource.PlayOneShot(damageSound);
         }
     }
-    IEnumerator Die()
+
+    private IEnumerator Die()
     {
         animator.SetTrigger("Die");
         // Optionally, disable the slime enemy's ability to move or interact

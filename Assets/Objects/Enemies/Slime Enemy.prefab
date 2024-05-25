@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRange: 7
-  chargeSpeed: 3
+  chargeSpeed: 4
   leapSpeed: 5
   moveSpeed: 1
   maxHealth: 2

@@ -1808,7 +1808,7 @@ MonoBehaviour:
   manaLight: {fileID: 7077893418372482954}
   maxMana: 100
   fireballManaCost: 20
-  lightningManaCost: 50
+  lightningManaCost: 30
   waterWaveManaCost: 50
   manaRegenRate: 10
   spellSelectSound: {fileID: 8300000, guid: 89a75c8b714a4984195312102ed43618, type: 3}

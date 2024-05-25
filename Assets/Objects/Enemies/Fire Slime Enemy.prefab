@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2725174604057520750}
   - component: {fileID: 1214960719645776490}
   - component: {fileID: 1754123042914651424}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fire Slime Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
