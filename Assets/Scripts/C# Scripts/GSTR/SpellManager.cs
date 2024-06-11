@@ -418,7 +418,7 @@ public class SpellManager : MonoBehaviour
     {
         if (manaLight != null)
         {
-            manaLight.intensity = Mathf.Lerp(2, 3, currentMana / maxMana); // Set minimum intensity to 2
+            manaLight.intensity = Mathf.Lerp(4, 6, currentMana / maxMana); // Set minimum intensity to 2
             manaLight.color = Color.Lerp(lowManaColor, highManaColor, currentMana / maxMana);
         }
     }
